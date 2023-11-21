@@ -1,0 +1,698 @@
+@font-face {
+    font-family: Pixelz;
+    src: url('Fonts/Pixelz.ttf'), format('truetype');
+}
+
+* {
+    font-family: Pixelz, sans-serif;
+    font-size: calc(15px + 0.390625vw);
+    padding: 0;
+    margin: 0;
+}
+
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+/* ScrollBar */
+/* width */
+::-webkit-scrollbar {
+    display: none;
+}
+
+.navbar {
+    top: 0;
+    padding: 0 3%; 
+    background-color: white;
+    box-shadow: 0 0 20px black;
+
+    position: -webkit-sticky;
+    position:sticky;
+    z-index: 10;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.navbar_logo {
+    width: 4rem;
+    margin-right: 0.5rem;
+}
+
+.navbar_title {
+    font-size: 1rem;
+    line-height: 115%;
+    margin-top: 0;
+
+    text-decoration: none;
+
+    color: black;
+}
+
+.menu_button {
+    font-size: 1rem;
+    padding: 0.25rem 2rem;
+    border: 2px;
+    border-radius: 10em;
+
+    border-style: solid;
+
+    color: black;
+    border-color: black;
+    background-color: white;
+
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.menu_button:hover {
+    color: white;
+    background-color: black;
+}
+
+/* ------------------------------
+---------- Game Style -----------
+------------------------------ */
+
+.game_section {
+    width: 100%;
+    height: 99vh;
+}
+
+.game {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 0 0 20px black;
+}
+
+/* -----------------------------
+--------- About Style ----------
+----------------------------- */
+
+.about {
+    width: 100%;
+    height: max-content;
+
+    background: url("Images/Backgrounds/GameWall.png");
+
+    background-attachment: fixed;
+
+    animation: about_back_loop 60s linear infinite;
+}
+
+@keyframes about_back_loop {
+    100% { background-position: 1526px -1526px; }
+}
+
+.about_container {
+    padding-top: 20vh;
+    padding-bottom: 20vh;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7.5%;
+    
+}
+
+.about_title {
+    margin-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4rem;
+}
+
+.about_title h2 {
+    font-size: 2.5rem;
+
+    color: white;
+    text-shadow: 5px 0 20px black;
+}
+
+.about_image {
+    width: 13rem;
+    height: 13rem;
+    border-radius: 50%;
+    transform-origin: center;
+
+    background-image: url("Images/Logos/PixelSteeviee.png");
+    background-size: contain;
+    
+    box-shadow: 0 0 20px black;
+
+    transition: 0.5s;
+}
+
+.about_image:hover {
+    width: 14rem;
+    height: 14rem;
+    border-radius: 50%;
+
+    background-image: url("Images/Logos/Steeviee.png");
+    background-size: contain;
+    
+    box-shadow: 0 0 20px black;
+}
+
+.about_image img {
+    width: 125%;
+    height: 125%;
+    border-radius: 50%;
+
+    object-fit: contain;
+    position: relative;
+    left: -12.5%;
+    top: -12.5%;
+
+    animation: about_image_loop 45s linear infinite;
+}
+
+@keyframes about_image_loop {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.about_desc {
+    min-width: 250px;
+    max-width: 35%;
+    padding: 2rem;
+    border-radius: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    background-color: white;
+    box-shadow: 0 0 20px black;
+}
+
+.tabs {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.tab_buttons {
+    display: flex;
+    align-self: center;
+    gap: 1rem;
+}
+
+.tab_button {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    position: relative;
+
+    background-color: #b5c2e2;
+}
+
+.tab_button::after {
+    content: '';
+
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+
+    background-color: #b5c2e2;
+
+    transition: 0.25s;
+}
+
+.tab_button.active::after {
+    content: '';
+
+    width: 105%;
+    height: 105%;
+    border-radius: 50%;
+    position: absolute;
+
+    background-color: #4573eb;
+
+    transition: 0.25s;
+}
+
+.tab_content {
+    display: none;
+
+    flex-grow: 1;
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+
+    background-color: #d7dbe5;
+
+    transition: 0.5s;
+}
+
+.tab_content.active {
+    display: block;
+
+    flex-grow: 1;
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+
+    background-color: #d7dbe5;
+
+    transition: 0.5s;
+}
+
+.emph {
+    font-size: 0.8rem;
+    color: #0835a9;
+}
+
+.inline_title {
+    color: #4573eb;
+}
+
+.inline_subtitle {
+    font-size: 0.8rem;
+
+    color: #85a2ef;
+}
+
+/* --------------------------------
+--------- Projects Style ----------
+-------------------------------- */
+
+.projects {
+    width: 100%;
+    height: max-content;
+    position: relative;
+    z-index: 1;
+
+    background-color: white;
+    box-shadow: 0 0 20px black;
+}
+
+.projects_container {
+    padding: 20vh 4%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 3rem;
+}
+
+.projects_container h2 {
+    font-size: 2.5rem;
+
+    color: black;
+}
+
+.projects_grid {
+    width: 100%;
+    
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2.25rem;
+}
+
+.project {
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    width: calc(150px + 10rem);
+    height: calc(150px + 10rem);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    background-position: center;
+    background-size: cover;
+
+    box-shadow: 0 0 20px black;
+
+    transition: 0.5s;
+}
+
+.project:hover {
+    position: relative;
+    transform: translateY(-15px);
+    border-radius: 1.5rem;
+    width: calc(160px + 10rem);
+    height: calc(160px + 10rem);
+
+    box-shadow: 0 0 30px black;
+
+    cursor: pointer;
+}
+
+.project::after {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    
+    top: -5%;
+    transform: translateY(10px);
+
+    border-radius: 1.5rem;
+    background: linear-gradient(#0836a900, #010e2dc9 60%);
+    overflow: hidden;
+
+    transition: 0.5s;
+}
+
+.project:hover::after {
+    content: '';
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    
+    transform: translateY(-10px);    
+
+    border-radius: 1.5rem;
+    background: linear-gradient(#0836a97a, #010e2dc9 40%);
+}
+
+.project_title {
+    color: white;
+    font-size: 1.2rem;
+    padding-bottom: 2%;
+    z-index: 1;
+}
+
+.project_subtitle {
+    color: white;
+    font-size: 1rem;
+    z-index: 1;
+}
+
+.project_icons {
+    padding-bottom: 5%;
+    display: flex;
+    gap: 0.75rem;
+    z-index: 1;
+}
+
+.project_genre, .project_program {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    background-position: center;
+    background-size: contain;
+}
+
+
+#shibanobis-revenge {
+    background-image: url("Images/Projects/ShibanobisRevenge/ShibanobiBanner.png");
+}
+
+#shibanobis-revenge:hover {
+    background-image: url("Images/Projects/ShibanobisRevenge/ShibanobiBannerGif.gif");
+}
+
+#shibanobis-revenge .project_genre {
+    background-image: url("Images/Logos/PlatformWhite.png");
+}
+
+#shibanobis-revenge .project_program {
+    background-image: url("Images/Logos/UnityWhite.png");
+}
+
+#up-down-samurai {
+    background-image: url("Images/Projects/UpDownSamurai/SamuraiBanner.png");
+}
+
+#up-down-samurai:hover {
+    background-image: url("Images/Projects/UpDownSamurai/SamuraiBannerGif.gif");
+}
+
+#up-down-samurai .project_genre {
+    background-image: url("Images/Logos/MusicWhite.png");
+}
+
+#up-down-samurai .project_program {
+    background-image: url("Images/Logos//UnityWhite.png");
+}
+
+#coupe-touille {
+    background-image: url("Images/Projects/CoupeTouille/CoupeBanner.png");
+}
+
+#coupe-touille:hover {
+    background-image: url("Images/Projects/CoupeTouille/CoupeBannerGif.gif");
+}
+
+#coupe-touille .project_genre {
+    background-image: url("Images/Logos/MusicWhite.png");
+}
+
+#coupe-touille .project_program {
+    background-image: url("Images/Logos/UnityWhite.png");
+}
+
+#delivered-with-care {
+    background-image: url("Images/Projects/DeliveredWithCare/DeliverBanner.png");
+}
+
+#delivered-with-care:hover {
+    background-image: url("Images/Projects/DeliveredWithCare/DeliverBannerGif.gif");
+}
+
+#delivered-with-care .project_genre {
+    background-image: url("Images/Logos/PlatformWhite.png");
+}
+
+#delivered-with-care .project_program {
+    background-image: url("Images/Logos/UnityWhite.png");
+}
+
+#scrapped-away {
+    background-image: url("Images/Projects/ScrappedAway/ScrappedBanner.png");
+}
+
+#scrapped-away:hover {
+    background-image: url("Images/Projects/ScrappedAway/ScrappedBannerGif.gif");
+}
+
+#scrapped-away .project_genre {
+    background-image: url("Images/Logos/ActionWhite.png");
+}
+
+#scrapped-away .project_program {
+    background-image: url("Images/Logos/UnrealWhite.png");
+}
+
+#hive {
+    background-image: url("Images/Projects/Hive/HiveBanner.png");
+}
+
+#hive:hover {
+    background-image: url("Images/Projects/Hive/HiveBannerGif.gif");
+}
+
+#hive .project_genre {
+    background-image: url("Images/Logos/VRWhite.png");
+}
+
+#hive .project_program {
+    background-image: url("Images/Logos/UnityWhite.png");
+}
+
+/* -------------------------------
+--------- Contact Style ----------
+-------------------------------- */
+
+.contact {
+    width: 100%;
+    height: max-content;
+
+    background: url("Images/Backgrounds/GameWall.png");
+
+    background-attachment: fixed;
+
+    animation: contact_back_loop 60s linear infinite;
+}
+
+@keyframes contact_back_loop {
+    100% { background-position: 1526px -1526px; }
+}
+
+.contact_container {
+    padding-top: 20vh;
+    padding-bottom: 20vh;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7.5%;
+    
+}
+
+.contact_title {
+    margin-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 3rem;
+}
+
+.contact_title h2 {
+    font-size: 2.25rem;
+
+    color: white;
+    text-shadow: 5px 0 20px black;
+}
+
+.contact_image {
+    width: 13rem;
+    height: 13rem;
+    border-radius: 50%;
+
+    background-image: url("Images/Logos/LogoOnlyWhite.png");
+    background-size: contain;
+
+    transition: 0.5s;
+}
+
+.contact_image:hover {
+    width: 14rem;
+    height: 14rem;
+    transform: translateY(-0.5rem);
+
+    background-image: url("Images/Logos/LogoOnlyColor.png");
+}
+
+.contact_image img {
+    width: 125%;
+    height: 125%;
+    border-radius: 50%;
+
+    object-fit: contain;
+    position: relative;
+    left: -12.5%;
+    top: -12.5%;
+
+    animation: contact_image_loop 45s linear infinite;
+}
+
+@keyframes contact_image_loop {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.contact_links {
+    display: flex;
+    gap: 2rem;
+}
+
+.contact_link {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+
+    background-size: contain;
+    
+    box-shadow: 0 0 20px black;
+
+    transition: 0.5s;
+}
+
+.contact_link:hover {
+    width: 5rem;
+    height: 5rem;
+
+    transform: translateY(-10px);
+}
+
+.contact_link:first-child {
+    background-image: url("Images/Logos/linkedinWhite.png");
+}
+
+.contact_link:nth-child(2) {
+    background-image: url("Images/Logos/InstaWhite.png");
+}
+
+.contact_link:last-child {
+    background-image: url("Images/Logos/ItchWhite.png");
+}
+
+.contact_form {
+    min-width: 260px;
+    width: 40%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.form {
+    width: 100%;
+    padding: 1.2rem;
+    border-radius: 1rem;
+
+    border: none;
+    background-color: white;
+    box-shadow: 0 0 20px black;
+}
+
+.form:only-of-type {
+    resize: none;
+
+    flex-grow: 1;
+    width: 100%;
+    min-height: 300px;
+    padding: 1.25rem;
+    border-radius: 1rem;
+
+    overflow: scroll;
+
+    border: none;
+    background-color: white;
+    box-shadow: 0 0 20px black;
+}
+
+.form_button {
+    width: 50%;
+    padding: 1.2rem;
+    border-radius: 1rem;
+
+    align-self: flex-start;
+
+    border: none;
+    color: white;
+    background-color: #4573eb;
+
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.form_button:hover {
+    transform: translateY(-5px);
+    background-color: #5e89f6;
+}
+
+.form_button:active {
+    transform: translateY(-2px);
+    background-color: #244aaa;
+}

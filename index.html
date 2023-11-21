@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+        <meta name = "description" content = "View the various games and projects Steeve Dossou made and worked on!">
+
+        <title> Steeve Dossou - Portfolio </title>
+
+        <link rel = "stylesheet" href = "/style.css">
+    </head>
+
+    <body>
+
+        <!-- Navigation bar -->
+        <nav class = "navbar">
+            <a href = "/">
+                <img src = "Images/Logos/LogoBlack.png" class = "navbar_logo">
+                <p class = "navbar_title">Steeve Dossou<br>Portfolio</p>
+            </a> 
+
+            <a href = "/" class = "navbar_menu">
+                <button class = "menu_button">Menu</button>
+            </a>
+        </nav>
+
+        <!-- Mini Game section -->
+        <section class = "game_section">
+            <img src = "Images/Backgrounds/gamePlaceholder.png" class = "game">
+        </section>
+
+        <!-- About Section -->
+        <section class = "about">
+
+            <div class = "about_container">
+                <div class = "about_title">
+                    <h2>&#x2022 ABOUT ME &#x2022</h2>
+    
+                    <div class = "about_image">
+                        <img src = "Images/Logos/SteevieTitle.png">
+                    </div>
+                </div>
+                
+                <div class = "about_desc">
+                    Ever since I was 11 years old, I was fascinated with the fact that I could create my own video games. Driven by pure passion and motivation, I've been honing and perfecting my craft in gameplay programming and game design.
+
+                    <div class="tabs">
+                        <div class="tab_buttons">
+                            <div class="tab_button active" onclick = "openTab('skills')"></div>
+                            <div class="tab_button" onclick = "openTab('experience')"></div>
+                            <div class="tab_button" onclick = "openTab('education')"></div>
+                        </div>
+
+                        <p class="tab_content active" id = "skills">
+                            <span class = "inline_title">SKILLS</span><br><br>
+                            
+                            <span class = "inline_subtitle">Gameplay programming</span><br>
+                            Very strong knowledge of <span class = "emph">Unity</span>, <span class = "emph">C#</span> and <span class = "emph">Git version control</span>. Good skills in <span class = "emph">Unreal Engine</span> and <span class = "emph">blueprints</span>.<br><br>
+                            
+                            <span class = "inline_subtitle">Game Design</span><br>
+                            Excellent skills in designing <span class = "emph">game mechanics</span> and <span class = "emph">player mechanics</span>. Very reliable in <span class = "emph">level design</span>.<br><br>
+
+                            <span class = "inline_subtitle">3D Modeling</span><br>
+                            Good knowledge of <span class = "emph">Blender</span>. Reliable skills in <span class = "emph">box modeling</span> and <span class = "emph">sculpting</span>.<br><br>
+                        </p>
+
+                        <p class="tab_content" id = "experience">
+                            <span class = "inline_title">EXPERIENCE</span><br><br>
+                            
+                            <span class = "inline_title">Kaiso Studio</span><br>
+                            <span class = "inline_subtitle">Jan. 2022 - Present</span><br>
+                            <span class = "emph">Cofounder</span> of a <span class = "emph">multidisciplinary design studio</span>. <span class = "emph">Lead Game designer</span> and <span class = "emph">gameplay programmer</span>.<br><br>
+                            
+                            <span class = "inline_title">Jellyfox</span><br>
+                            <span class = "inline_subtitle">Jan. 2021 - Feb. 2021</span><br>
+                            Two months internship in a small game development studio. Designed and coded <span class = "emph">3 arcade games</span> played with <span class = "emph">alternative controllers</span>.<br><br>
+                        </p>
+
+                        <p class="tab_content" id = "education">
+                            <span class = "inline_title">EDUCATION</span><br><br>
+                            
+                            <span class = "inline_title">Nantes Ynov Campus</span><br>
+                            <span class = "inline_subtitle">Sept. 2021 - Sept. 2023</span><br>
+                            Master in <span class = "emph">3D game art</span> and <span class = "emph">game development</span>.<br><br>
+                            
+                            <span class = "inline_title">L'École de design Nantes Atlantique</span><br>
+                            <span class = "inline_subtitle">Sept. 2018 - Jun. 2021</span><br>
+                            Bachelor in <span class = "emph">game design</span> and <span class = "emph">game development</span>.<br><br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- Projects Section -->
+        <section class = "projects">
+
+            <div class = "projects_container">
+                <h2>&#x2022 PROJECTS &#x2022</h2>
+
+                <div class = "projects_grid">
+                    <a class = "project" id = "shibanobis-revenge" href = "/">
+                        <div class = "project_subtitle">&#x2022 Team &#x2022</div>
+                        <div class = "project_title">Shibanobi's Revenge</div>
+                        <div class="project_icons">
+                            <div class = "project_genre"></div>
+                            <div class = "project_program"></div>
+                        </div>
+                    </a>
+
+                    <a class = "project" id = "up-down-samurai" href = "/">
+                        <div class = "project_subtitle">&#x2022 Solo &#x2022</div>
+                        <div class = "project_title">Up Down Samurai</div>
+                        <div class="project_icons">
+                            <div class = "project_genre"></div>
+                            <div class = "project_program"></div>
+                        </div>
+                    </a>
+    
+                    <a class = "project" id = "coupe-touille" href = "/">
+                        <div class = "project_subtitle">&#x2022 Solo &#x2022</div>
+                        <div class = "project_title">Coupe & Touille</div>
+                        <div class="project_icons">
+                            <div class = "project_genre"></div>
+                            <div class = "project_program"></div>
+                        </div>
+                    </a>
+    
+                    <a class = "project" id = "delivered-with-care" href = "/">
+                        <div class = "project_subtitle">&#x2022 Team &#x2022</div>
+                        <div class = "project_title">Delivered With Care</div>
+                        <div class="project_icons">
+                            <div class = "project_genre"></div>
+                            <div class = "project_program"></div>
+                        </div>
+                    </a>
+    
+                    <a class = "project" id = "scrapped-away" href = "/">
+                        <div class = "project_subtitle">&#x2022 Team &#x2022</div>
+                        <div class = "project_title">Scrapped Away</div>
+                        <div class="project_icons">
+                            <div class = "project_genre"></div>
+                            <div class = "project_program"></div>
+                        </div>
+                    </a>
+    
+                    <a class = "project" id = "hive" href = "/">
+                        <div class = "project_subtitle">&#x2022 Team &#x2022</div>
+                        <div class = "project_title">HIVE</div>
+                        <div class="project_icons">
+                            <div class = "project_genre"></div>
+                            <div class = "project_program"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Contact Section -->
+        <section class = "contact">
+
+            <div class = "contact_container">
+                <div class = "contact_title">
+                    <h2>&#x2022 GET IN TOUCH &#x2022</h2>
+                    
+                    <div class = "contact_image">
+                        <img src = "Images/Logos/SteevieContactTitle.png">
+                    </div>
+
+                    <div class="contact_links">
+                        <a class="contact_link" href="/"></a>
+                        <a class="contact_link" href="/"></a>
+                        <a class="contact_link" href="/"></a>
+                    </div>
+                </div>
+                
+                <form class = "contact_form" action="https://formsubmit.co/steeved.design@gmail.com" method="POST">
+                    <input class="form" type="text" name="Name" autocomplete="name" placeholder="Your name..." required>
+                    <input class="form" type="email" name="Email" autocomplete="email" placeholder="Your e-mail..." required>
+                    <textarea class = "form" name="Message" placeholder="Your message..." required></textarea>
+                    <button class="form_button" type="submit">Send</button>
+                </form>
+            </div>
+            
+        </section>
+
+    </body>
+
+    <script>
+
+        var tabButtons = document.getElementsByClassName("tab_button");
+        var tabContents = document.getElementsByClassName("tab_content");
+
+        function openTab(tabName) {
+            /* Remove the "active" class for every tab */
+            for (tabButton of tabButtons) { tabButton.classList.remove("active"); }
+            for (tabContent of tabContents) { tabContent.classList.remove("active"); }
+
+            /* Add the "active" class to the clicked tab */
+            event.currentTarget.classList.add("active");
+            document.getElementById(tabName).classList.add("active");
+        }
+
+    </script>
+
+</html>
