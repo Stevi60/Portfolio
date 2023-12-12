@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+        
+        <meta name = "description" content = "Shibanobi's Revenge is a small pixel art 2D platformer, heavily inspired by the game Celeste. This game was a school project and was made by a team of 3 people. Steeve Dossou was the programmer and also worked on level design.">
+
+        <title> Steeve Dossou - Portfolio | Shibanobi's Revenge </title>
+
+        <link rel = "stylesheet" href = "/style.css">
+        <link rel = "stylesheet" href = "/projectstyle.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Navigation bar -->
+        <nav class = "navbar">
+            <a href = "/">
+                <img src = "Images/Logos/LogoBlack.png" class = "navbar_logo">
+                <p class = "navbar_title">Steeve Dossou<br>Portfolio</p>
+            </a> 
+            
+            <div class = "navbar_menu">
+                <a class = "menu_button" href = "index.html">Back</a>
+            </div>
+        </nav>
+
+    </body>
+
+    <script>
+
+        function scrollToSection(targetName) {
+            var target = document.getElementById(targetName);
+            target.scrollIntoView(true);
+            target.scrollIntoView({behavior: smooth});
+        }
+
+    </script>
+
+</html>

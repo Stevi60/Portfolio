@@ -10,6 +10,8 @@
         <title> Steeve Dossou - Portfolio </title>
 
         <link rel = "stylesheet" href = "/style.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
 
     <body>
@@ -20,19 +22,26 @@
                 <img src = "Images/Logos/LogoBlack.png" class = "navbar_logo">
                 <p class = "navbar_title">Steeve Dossou<br>Portfolio</p>
             </a> 
-
-            <a href = "/" class = "navbar_menu">
+            
+            <div class = "navbar_menu">
                 <button class = "menu_button">Menu</button>
-            </a>
+                
+                <ul class = "menu_list"> 
+                    <li onclick = "scrollToSection('game')">Game</li>
+                    <li onclick = "scrollToSection('about')">About</li>
+                    <li onclick = "scrollToSection('projects')">Projects</li>
+                    <li onclick = "scrollToSection('contact')">Contact</li>
+                </ul>
+            </div>
         </nav>
 
         <!-- Mini Game section -->
-        <section class = "game_section">
-            <img src = "Images/Backgrounds/gamePlaceholder.png" class = "game">
+        <section id = "game">
+            <img src = "Images/Backgrounds/gamePlaceholder.png" class = "game_container">
         </section>
 
         <!-- About Section -->
-        <section class = "about">
+        <section id = "about">
 
             <div class = "about_container">
                 <div class = "about_title">
@@ -96,13 +105,15 @@
         </section>
 
         <!-- Projects Section -->
-        <section class = "projects">
+        <section id = "projects">
 
             <div class = "projects_container">
                 <h2>&#x2022 PROJECTS &#x2022</h2>
 
+                <div class = "projects_tip">(Hold your finger on a card to preview it.)</div>
+
                 <div class = "projects_grid">
-                    <a class = "project" id = "shibanobis-revenge" href = "/">
+                    <a class = "project" id = "shibanobis-revenge" href = "shibanobis-revenge.html">
                         <div class = "project_subtitle">&#x2022 Team &#x2022</div>
                         <div class = "project_title">Shibanobi's Revenge</div>
                         <div class="project_icons">
@@ -161,7 +172,7 @@
         </section>
 
         <!-- Contact Section -->
-        <section class = "contact">
+        <section id = "contact">
 
             <div class = "contact_container">
                 <div class = "contact_title">
@@ -204,6 +215,34 @@
             event.currentTarget.classList.add("active");
             document.getElementById(tabName).classList.add("active");
         }
+
+        function scrollToSection(targetName) {
+            var target = document.getElementById(targetName);
+            target.scrollIntoView(true);
+
+            var menu = document.getElementById("menu_button");
+        }
+
+    </script>
+
+    <script>
+
+        $(".menu_list").hide()
+        $(document).ready(function(){
+            
+            //Open or close the navigation bar menu if it's clicked on
+            $(".menu_button").click(function(){
+                if (!$(".menu_button").hasClass("menu_open")) {
+                    $(".menu_button").toggleClass("menu_open");
+                        $(".menu_list").delay(200).animate({height: 'toggle'});
+                } else {
+                    $(".menu_list").animate({height: 'toggle'}, function(){
+                        $(".menu_button").toggleClass("menu_open");
+                    });
+                }
+            });
+            
+        })
 
     </script>
 
