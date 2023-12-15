@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+        
+        <meta name = "description" content = "Up Down Samurai is a small rhythm game with a twist on the genre. ">
+
+        <title> Steeve Dossou - Portfolio | Up Down Samurai </title>
+
+        <link rel = "stylesheet" href = "/projectstyle.css">
+        <link rel = "stylesheet" href = "/style.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Navigation bar -->
+        <nav class = "navbar">
+            <a href = "/">
+                <img src = "Images/Logos/LogoBlack.png" class = "navbar_logo">
+                <p class = "navbar_title">Steeve Dossou<br>Portfolio</p>
+            </a> 
+            
+            <div class = "navbar_menu">
+                <button class = "menu_button">Menu</button>
+                
+                <ul class = "menu_list"> 
+                    <li><a href = "/" class = "list_item">Home</a></li>
+                    <li><a href = "shibanobis-revenge.html" class = "list_item">Previous</a></li>
+                    <li><a href = "/" class = "list_item">Next</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Project Overview -->
+        <section id = "overview">
+            
+            <div class = "overview_container">
+                <h2>&#x2022 &#x2022 UP DOWN SAMURAI &#x2022 &#x2022</h2>
+
+                <div class = "slider_wrap">
+                    <div class = "slider_container">
+                        <div class = "slider">
+                            <img src = "Projects/UpDownSamurai/SamuraiImage1.png" alt = "Title screen of Up Down Samurai" class = "slide" id = "slide-0">
+
+                            <video controls width = "320" height = "240" class = "slide" id = "slide-1">
+                                <source src = "Projects/UpDownSamurai/SamuraiVideo.mp4" type = "video/mp4">
+                            </video>
+
+                            <img src = "Projects/UpDownSamurai/SamuraiImage2.png" alt = "Appuda standing still on the left side of the screen" class = "slide" id = "slide-2">
+
+                            <img src = "Projects/UpDownSamurai/SamuraiImage3.png" alt = "Appuda getting sliced by an enemy" class = "slide" id = "slide-3">
+
+                            <img src = "Projects/UpDownSamurai/SamuraiImage4.png" alt = "Appuda slicing an enemy" class = "slide" id = "slide-4">
+                        </div> 
+                    </div>
+                    
+                    <div class = "slider_nav">
+                        <div class = "slide_button active_slide" onclick = "changeSlide()"></div>
+                        <div class = "slide_button" onclick = "changeSlide()"></div>
+                        <div class = "slide_button" onclick = "changeSlide()"></div>
+                        <div class = "slide_button" onclick = "changeSlide()"></div>
+                        <div class = "slide_button" onclick = "changeSlide()"></div>
+                    </div>
+                </div>
+               
+                <div class = "overview_desc">
+                    <p> Up Down Samurai is a small rhythm game I made completely on my own. This game was made on my spare time, outside of school for an underclassman. I made this game while trying to iterate on the rhythm game genre and give it more of an action game feel. It was made in Unity.<br><br>
+
+                    As it was for and underclassman, the game is in french. It might be a bit hard to grasp but it is still playable by anyone. Try it! </p>
+
+                    <div class = "overview_cta">
+                        <a href = "Projects/UpDownSamurai/Up Down Samurai v1.2.zip" download>Play the Game!</a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Project Insight -->
+        <section id = "insight">
+
+            <div class = "insight_container">
+                <h2>&#x2022 INSIGHT &#x2022</h2>
+
+                <div class = "container">
+                    <div class = "text">
+                        <p><h3>Game Design & Gameplay</h3><br>
+
+                        Up Down Samurai is the first rhythm game I made. As I've always loved the rhythm game genre, I wanted to have my own take on it. In order to make the game easy to pick up, I decided to give the player simple controls, different than the usual "key per note" approach rhythm games tend to have. The player only has <span class = "emph">3 inputs</span> to press in order to play: the <span class = "emph">Up</span> and <span class = "emph">Down arrow keys</span>, and the <span class = "emph">Spacebar</span>.<br><br>
+
+                        The gameplay of this game is pretty simple. The player has to press the right key on the right beat. In order to know which key to press on the next beat, the samurai bounces up and down throughout the game.
+                    </div>
+
+                    <div class = "image">
+                        <img src="Projects/UpDownSamurai/SamuraiBannerGif.gif" alt="">
+                    </div>
+                </div>
+
+                <div class = "container">
+                    <div class = "text_end">Thank you for reading!</div>
+                </div>
+
+                <div class = "container">
+                    <div class = "overview_cta">
+                        <a href = "Projects/UpDownSamurai/Up Down Samurai v1.2.zip" download>Play the Game!</a>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+    </body>
+
+    <script>
+
+        var slideButtons = document.getElementsByClassName("slide_button");
+
+        function changeSlide() {
+            for (slideButton of slideButtons) { slideButton.classList.remove("active_slide"); }
+            event.currentTarget.classList.add("active_slide");
+            
+            for (let i = 0; i < slideButtons.length; i++) {
+                if (event.currentTarget === slideButtons[i]) {
+                    var target = document.getElementById("slide-" + i);
+                    target.scrollIntoView(false);
+                    target.scrollIntoView({block: 'nearest'});
+                }
+            }
+        }
+ 
+    </script>
+
+    <script>
+
+        $(".menu_list").hide()
+        $(document).ready(function(){
+            
+            //Open or close the navigation bar menu if it's clicked on
+            $(".menu_button").click(function(){
+                if (!$(".menu_button").hasClass("menu_open")) {
+                    $(".menu_button").toggleClass("menu_open");
+                        $(".menu_list").delay(200).animate({height: 'toggle'});
+                } else {
+                    $(".menu_list").animate({height: 'toggle'}, function(){
+                        $(".menu_button").toggleClass("menu_open");
+                    });
+                }
+            });
+
+            $(".menu_list li").click(function(){
+                $(".menu_list").delay(100).animate({height: 'hide'}, function(){
+                    $(".menu_button").removeClass("menu_open");
+                });    
+            })
+            
+        })
+
+    </script>
+
+</html>
