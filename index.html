@@ -27,10 +27,10 @@
                 <button class = "menu_button">Menu</button>
                 
                 <ul class = "menu_list"> 
-                    <li onclick = "scrollToSection('game')">Game</li>
-                    <li onclick = "scrollToSection('about')">About</li>
-                    <li onclick = "scrollToSection('projects')">Projects</li>
-                    <li onclick = "scrollToSection('contact')">Contact</li>
+                    <li onclick = "scrollToSection('game')"><div class = "list_item">Game</div></li>
+                    <li onclick = "scrollToSection('about')"><div class = "list_item">About</div></li>
+                    <li onclick = "scrollToSection('projects')"><div class = "list_item">Projects</div></li>
+                    <li onclick = "scrollToSection('contact')"><div class = "list_item">Contact</div></li>
                 </ul>
             </div>
         </nav>
@@ -66,13 +66,13 @@
                             <span class = "inline_title">SKILLS</span><br><br>
                             
                             <span class = "inline_subtitle">Gameplay programming</span><br>
-                            Very strong knowledge of <span class = "emph">Unity</span>, <span class = "emph">C#</span> and <span class = "emph">Git version control</span>. Good skills in <span class = "emph">Unreal Engine</span> and <span class = "emph">blueprints</span>.<br><br>
+                            Very strong knowledge of <span class = "small_emph">Unity</span>, <span class = "small_emph">C#</span> and <span class = "small_emph">Git version control</span>. Good skills in <span class = "small_emph">Unreal Engine</span> and <span class = "small_emph">blueprints</span>.<br><br>
                             
                             <span class = "inline_subtitle">Game Design</span><br>
-                            Excellent skills in designing <span class = "emph">game mechanics</span> and <span class = "emph">player mechanics</span>. Very reliable in <span class = "emph">level design</span>.<br><br>
+                            Excellent skills in designing <span class = "small_emph">game mechanics</span> and <span class = "small_emph">player mechanics</span>. Very reliable in <span class = "small_emph">level design</span>.<br><br>
 
                             <span class = "inline_subtitle">3D Modeling</span><br>
-                            Good knowledge of <span class = "emph">Blender</span>. Reliable skills in <span class = "emph">box modeling</span> and <span class = "emph">sculpting</span>.<br><br>
+                            Good knowledge of <span class = "small_emph">Blender</span>. Reliable skills in <span class = "small_emph">box modeling</span> and <span class = "small_emph">sculpting</span>.<br><br>
                         </p>
 
                         <p class="tab_content" id = "experience">
@@ -80,11 +80,11 @@
                             
                             <span class = "inline_title">Kaiso Studio</span><br>
                             <span class = "inline_subtitle">Jan. 2022 - Present</span><br>
-                            <span class = "emph">Cofounder</span> of a <span class = "emph">multidisciplinary design studio</span>. <span class = "emph">Lead Game designer</span> and <span class = "emph">gameplay programmer</span>.<br><br>
+                            <span class = "small_emph">Cofounder</span> of a <span class = "small_emph">multidisciplinary design studio</span>. <span class = "small_emph">Lead Game designer</span> and <span class = "small_emph">gameplay programmer</span>.<br><br>
                             
                             <span class = "inline_title">Jellyfox</span><br>
                             <span class = "inline_subtitle">Jan. 2021 - Feb. 2021</span><br>
-                            Two months internship in a small game development studio. Designed and coded <span class = "emph">3 arcade games</span> played with <span class = "emph">alternative controllers</span>.<br><br>
+                            Two months internship in a small game development studio. Designed and coded <span class = "small_emph">3 arcade games</span> played with <span class = "small_emph">alternative controllers</span>.<br><br>
                         </p>
 
                         <p class="tab_content" id = "education">
@@ -92,11 +92,11 @@
                             
                             <span class = "inline_title">Nantes Ynov Campus</span><br>
                             <span class = "inline_subtitle">Sept. 2021 - Sept. 2023</span><br>
-                            Master in <span class = "emph">3D game art</span> and <span class = "emph">game development</span>.<br><br>
+                            Master in <span class = "small_emph">3D game art</span> and <span class = "small_emph">game development</span>.<br><br>
                             
                             <span class = "inline_title">L'École de design Nantes Atlantique</span><br>
                             <span class = "inline_subtitle">Sept. 2018 - Jun. 2021</span><br>
-                            Bachelor in <span class = "emph">game design</span> and <span class = "emph">game development</span>.<br><br>
+                            Bachelor in <span class = "small_emph">game design</span> and <span class = "small_emph">game development</span>.<br><br>
                         </p>
                     </div>
                 </div>
@@ -219,8 +219,6 @@
         function scrollToSection(targetName) {
             var target = document.getElementById(targetName);
             target.scrollIntoView(true);
-
-            var menu = document.getElementById("menu_button");
         }
 
     </script>
@@ -241,6 +239,12 @@
                     });
                 }
             });
+
+            $(".menu_list li").click(function(){
+                $(".menu_list").delay(100).animate({height: 'hide'}, function(){
+                    $(".menu_button").removeClass("menu_open");
+                });    
+            })
             
         })
 

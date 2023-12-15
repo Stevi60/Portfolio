@@ -10,8 +10,8 @@
 
         <title> Steeve Dossou - Portfolio | Shibanobi's Revenge </title>
 
-        <link rel = "stylesheet" href = "/style.css">
         <link rel = "stylesheet" href = "/projectstyle.css">
+        <link rel = "stylesheet" href = "/style.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
@@ -26,19 +26,156 @@
             </a> 
             
             <div class = "navbar_menu">
-                <a class = "menu_button" href = "index.html">Back</a>
+                <button class = "menu_button">Menu</button>
+                
+                <ul class = "menu_list"> 
+                    <li><a href = "/" class = "list_item">Home</a></li>
+                    <li><a href = "/" class = "list_item">Next</a></li>
+                </ul>
             </div>
         </nav>
+
+        <!-- Project Overview -->
+        <section id = "overview">
+            
+            <div class = "overview_container">
+                <h2>&#x2022 &#x2022 SHIBANOBI'S REVENGE &#x2022 &#x2022</h2>
+
+                <div class = "slider_wrap">
+                    <div class = "slider_container">
+                        <div class = "slider">
+                            <img src = "Projects/ShibanobisRevenge/ShibaImage1.png" alt = "Title screen of Shibanobi's Revenge" class = "slide" id = "slide-0">
+
+                            <video controls width = "320" height = "240" class = "slide" id = "slide-1">
+                                <source src = "Projects/ShibanobisRevenge/ShibaVideo.mp4" type = "video/mp4">
+                            </video>
+
+                            <img src = "Projects/ShibanobisRevenge/ShibaImage2.png" alt = "Shiba-kun is in the air slicing with his sword" class = "slide" id = "slide-2">
+
+                            <img src = "Projects/ShibanobisRevenge/ShibaImage3.png" alt = "Shiba-kun is dashing upwards to reach a platform" class = "slide" id = "slide-3">
+
+                            <img src = "Projects/ShibanobisRevenge/ShibaImage4.png" alt = "Shiba-kun is dashing forward over a gap" class = "slide" id = "slide-4">
+                        </div> 
+                    </div>
+                    
+                    <div class = "slider_nav">
+                        <div class = "slide_button active_slide" onclick = "changeSlide()"></div>
+                        <div class = "slide_button" onclick = "changeSlide()"></div>
+                        <div class = "slide_button" onclick = "changeSlide()"></div>
+                        <div class = "slide_button" onclick = "changeSlide()"></div>
+                        <div class = "slide_button" onclick = "changeSlide()"></div>
+                    </div>
+                </div>
+               
+                <div class = "overview_desc">
+                    <p> Shibanobi's Revenge is a small pixel art 2D platformer, heavily inspired by the game Celeste. This game was a school project that I made with 2 classmates in a few months during my second year in college at l'École de Design Nantes Atlantique. It was made in Unity.<br><br>
+                    In this project, I was fully in charge of the programming. Each one of us was also in charge of doing level design.
+                    </p>
+
+                    <div class = "overview_cta">
+                        <a href = "https://steeviee.itch.io/shibanobis-revenge" target = "_blank">Play the Game!</a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Project Insight -->
+        <section id = "insight">
+
+            <div class = "insight_container">
+                <h2>&#x2022 INSIGHT &#x2022</h2>
+
+                <div class = "container">
+                    <div class = "image">
+                        <img src="Projects/ShibanobisRevenge/ShibanobiBannerGif.gif" alt="">
+                    </div>
+
+                    <div class = "text">
+
+                        <p><h3>Code Architecture</h3><br>
+
+                        Shibanobi's Revenge is the first game I made that had levels. In order to facilitate level creation in the engine, I created a seamless way for level screens to transition between each other. This way, the player doesn't have to think about camera control and can see everything he needs to see on a single screen.<br><br>
+
+                        Every single level follows a pattern. Each screen is numbered and wrapped inside a <span class = "emph">box collider</span>. This way, the camera controller knows the boundaries of the current screen and knows which portion of the level it has to transition to next. </p>    
+                    </div>
+                </div>
+
+                <div class = "container">
+                    <div class = "text">
+                        <p> Shibanobi's Revenge is a game where the player has to perform precise movements in order to reach the end of each level. In order to help the player achieve this, <span class = "emph" >every movement ability is cancellable by another movement ability</span>. Therefore, I used a <span class = "emph">Finite State Machine</span> to make every state the player can be in, and give them the ability to switch between them when they need to. </p>    
+                    </div>
+                </div>
+
+                <div class = "container">
+                    <div class = "text">
+                        <p> <h3 class = "inline_title">Level Design</h3><br>
+                        The level design was a very important portion of the game. It lets players learn the game's mechanics and apply them when the game challenges their skill. Every level was first <span class=  "emph">drawn on paper using a grid</span>. In order to have a seamless gameplay, we wrote down <span class = "emph">the distance of every ability</span> and used that information to make the obstacles. </p>    
+                    </div>
+
+                    <div class = "image">
+                        <img src="Projects/ShibanobisRevenge/ShibaInsight1.png" alt="">
+                    </div>
+                </div>
+
+                <div class = "container">
+                    <div class = "text_end">Thank you for reading!</div>
+                </div>
+
+                <div class = "container">
+                    <div class = "overview_cta">
+                        <a href = "https://steeviee.itch.io/shibanobis-revenge" target = "_blank">Play the Game!</a>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
 
     </body>
 
     <script>
 
-        function scrollToSection(targetName) {
-            var target = document.getElementById(targetName);
-            target.scrollIntoView(true);
-            target.scrollIntoView({behavior: smooth});
+        var slideButtons = document.getElementsByClassName("slide_button");
+
+        function changeSlide() {
+            for (slideButton of slideButtons) { slideButton.classList.remove("active_slide"); }
+            event.currentTarget.classList.add("active_slide");
+            
+            for (let i = 0; i < slideButtons.length; i++) {
+                if (event.currentTarget === slideButtons[i]) {
+                    var target = document.getElementById("slide-" + i);
+                    target.scrollIntoView(false);
+                    target.scrollIntoView({block: 'nearest'});
+                }
+            }
         }
+ 
+    </script>
+
+    <script>
+
+        $(".menu_list").hide()
+        $(document).ready(function(){
+            
+            //Open or close the navigation bar menu if it's clicked on
+            $(".menu_button").click(function(){
+                if (!$(".menu_button").hasClass("menu_open")) {
+                    $(".menu_button").toggleClass("menu_open");
+                        $(".menu_list").delay(200).animate({height: 'toggle'});
+                } else {
+                    $(".menu_list").animate({height: 'toggle'}, function(){
+                        $(".menu_button").toggleClass("menu_open");
+                    });
+                }
+            });
+
+            $(".menu_list li").click(function(){
+                $(".menu_list").delay(100).animate({height: 'hide'}, function(){
+                    $(".menu_button").removeClass("menu_open");
+                });    
+            })
+            
+        })
 
     </script>
 

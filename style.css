@@ -127,12 +127,20 @@ html,body
     overflow: hidden;
 }
 
-.menu_list li{ 
-    padding: 0.25rem  100%;
+.menu_list li {
+    text-decoration: none;
     border: 1px black;
     border-style: solid;
 
+    cursor: pointer;
+}
+
+.list_item {
+    text-decoration: none;
+    padding: 0.25rem  4rem;
+
     background: white;
+    color: black;
 
     cursor: pointer;
 }
@@ -141,18 +149,18 @@ html,body
 .menu_list li:last-child { border-bottom: 0px; }
 
 @media (pointer: fine) {
-    .menu_list li { transition: 0.5s; }
+    .list_item { transition: 0.5s; }
 
-    .menu_list li:hover {
+    .list_item:hover {
         color: white;
         background-color: black;
     }
 }
 
 @media (pointer: coarse) {
-    .menu_list li { transition: 0.2s; }
+    .list_item { transition: 0.2s; }
 
-    .menu_list li:active {
+    .list_item:active {
         color: white;
         background-color: black;
     }
@@ -184,7 +192,6 @@ html,body
     height: max-content;
 
     background: url("Images/Backgrounds/GameWall.png");
-
     background-attachment: fixed;
 
     animation: about_back_loop 60s linear infinite;
@@ -201,7 +208,6 @@ html,body
     justify-content: center;
     flex-wrap: wrap;
     gap: 7.5%;
-    
 }
 
 .about_title {
@@ -353,7 +359,7 @@ html,body
     transition: 0.5s;
 }
 
-.emph {
+.small_emph {
     font-size: 0.8rem;
     color: #0835a9;
 }
@@ -513,11 +519,11 @@ html,body
 
 
 #shibanobis-revenge {
-    background-image: url("Images/Projects/ShibanobisRevenge/ShibanobiBanner.png");
+    background-image: url("Projects/ShibanobisRevenge/ShibanobiBanner.png");
 }
 
 #shibanobis-revenge:hover {
-    background-image: url("Images/Projects/ShibanobisRevenge/ShibanobiBannerGif.gif");
+    background-image: url("Projects/ShibanobisRevenge/ShibanobiBannerGif.gif");
 }
 
 #shibanobis-revenge .project_genre {
@@ -529,11 +535,11 @@ html,body
 }
 
 #up-down-samurai {
-    background-image: url("Images/Projects/UpDownSamurai/SamuraiBanner.png");
+    background-image: url("Projects/UpDownSamurai/SamuraiBanner.png");
 }
 
 #up-down-samurai:hover {
-    background-image: url("Images/Projects/UpDownSamurai/SamuraiBannerGif.gif");
+    background-image: url("Projects/UpDownSamurai/SamuraiBannerGif.gif");
 }
 
 #up-down-samurai .project_genre {
@@ -545,11 +551,11 @@ html,body
 }
 
 #coupe-touille {
-    background-image: url("Images/Projects/CoupeTouille/CoupeBanner.png");
+    background-image: url("Projects/CoupeTouille/CoupeBanner.png");
 }
 
 #coupe-touille:hover {
-    background-image: url("Images/Projects/CoupeTouille/CoupeBannerGif.gif");
+    background-image: url("Projects/CoupeTouille/CoupeBannerGif.gif");
 }
 
 #coupe-touille .project_genre {
@@ -561,11 +567,11 @@ html,body
 }
 
 #delivered-with-care {
-    background-image: url("Images/Projects/DeliveredWithCare/DeliverBanner.png");
+    background-image: url("Projects/DeliveredWithCare/DeliverBanner.png");
 }
 
 #delivered-with-care:hover {
-    background-image: url("Images/Projects/DeliveredWithCare/DeliverBannerGif.gif");
+    background-image: url("Projects/DeliveredWithCare/DeliverBannerGif.gif");
 }
 
 #delivered-with-care .project_genre {
@@ -577,11 +583,11 @@ html,body
 }
 
 #scrapped-away {
-    background-image: url("Images/Projects/ScrappedAway/ScrappedBanner.png");
+    background-image: url("Projects/ScrappedAway/ScrappedBanner.png");
 }
 
 #scrapped-away:hover {
-    background-image: url("Images/Projects/ScrappedAway/ScrappedBannerGif.gif");
+    background-image: url("Projects/ScrappedAway/ScrappedBannerGif.gif");
 }
 
 #scrapped-away .project_genre {
@@ -593,11 +599,11 @@ html,body
 }
 
 #hive {
-    background-image: url("Images/Projects/Hive/HiveBanner.png");
+    background-image: url("Projects/Hive/HiveBanner.png");
 }
 
 #hive:hover {
-    background-image: url("Images/Projects/Hive/HiveBannerGif.gif");
+    background-image: url("Projects/Hive/HiveBannerGif.gif");
 }
 
 #hive .project_genre {
@@ -777,9 +783,11 @@ html,body
     cursor: pointer;
 }
 
-.form_button:hover {
-    transform: translateY(-5px);
-    background-color: #5e89f6;
+@media (pointer:fine) {
+    .form_button:hover {
+        transform: translateY(-5px);
+        background-color: #5e89f6;
+    }
 }
 
 .form_button:active {
