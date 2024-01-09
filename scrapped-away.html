@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+        
+        <meta name = "description" content = "Delivered With Care is 2D hand drawn platformer game made for Ludum Dare 53. The theme of the game jam was 'Delivery'.">
+
+        <title> Steeve Dossou - Portfolio | Scrapped Away </title>
+
+        <link rel = "stylesheet" href = "/projectstyle.css">
+        <link rel = "stylesheet" href = "/style.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Navigation bar -->
+        <nav class = "navbar">
+            <a href = "/">
+                <img src = "Images/Logos/LogoBlack.png" class = "navbar_logo">
+                <p class = "navbar_title">Steeve Dossou<br>Portfolio</p>
+            </a> 
+            
+            <div class = "navbar_menu">
+                <a href = "index.html#projects" class = "menu_button">Back</a>
+            </div>
+        </nav>
+
+        <!-- Project Overview -->
+        <section id = "overview">
+            
+            <div class = "overview_container">
+                <div class = "overview_title">
+                    <a href = "delivered-with-care.html" style = "scale: -1 1">&#10140;</a>
+                    <h2>&#x2022 SCRAPPED AWAY &#x2022</h2>
+                    <a href = "scrapped-away.html">&#10140;</a>
+                </div>
+
+                <div class = "slider_wrap">
+                    <div class = "slider_container">
+                        <div class = "slider">
+                            <img src = "Projects/DeliveredWithCare/DeliverImage1.png" alt = "Cover image of Delivered With Care" class = "slide" id = "slide-0">
+
+                            <video controls width = "320" height = "240" class = "slide" id = "slide-1">
+                                <source src = "Projects/DeliveredWithCare/DeliverVideo.mp4" type = "video/mp4">
+                            </video>
+
+                            <img src = "Projects/DeliveredWithCare/DeliverImage2.png" alt = "The delivery boy is throwing the package up." class = "slide" id = "slide-2" >
+
+                            <img src = "Projects/DeliveredWithCare/DeliverImage3.png" alt = "The delivery boy is jumping towards the package." class = "slide" id = "slide-3" >
+
+                            <img src = "Projects/DeliveredWithCare/DeliverImage4.png" alt = "The delivery boy is slidiing under some metallic pipes." class = "slide" id = "slide-4" >
+                        </div> 
+                    </div>
+                    
+                    <div class = "slider_nav">
+                        <div class = "slide_button active_slide" onclick = "changeSlide()"></div>
+                        <div class = "slide_button" onclick = "changeSlide()"></div>
+                        <div class = "slide_button" onclick = "changeSlide()"></div>
+                        <div class = "slide_button" onclick = "changeSlide()"></div>
+                        <div class = "slide_button" onclick = "changeSlide()"></div>
+                    </div>
+                </div>
+               
+                <div class = "overview_desc">
+                    <p> Scrapped Away is </p>
+
+                    <div class = "call_to_action">
+                        <a href = "https://lechesnemaxime.itch.io/scrapped-away" target = "_blank">Play the Game!</a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Project Insight -->
+        <section id = "insight">
+
+            <div class = "insight_container">
+                <h2>&#x2022 INSIGHT &#x2022</h2>
+
+                <div class = "container">
+                    <div class = "image">
+                        <img src="Projects/DeliveredWithCare/DeliverBannerGif.gif" alt="">
+                    </div>
+
+                    <div class = "text">
+                        <p><h3>Gameplay Design</h3><br>
+                        
+                        In order to grab the attention of players during game jams, our main focus is to create an interesting primary gameplay mechanic and create the game around it. The theme of the game jam was <span class = "emph">Delivery</span>. <br><br>
+                        
+                        I wanted to make a platformer with a twist so I suggested to have the player use a box to move around. The player has to keep the box from touching the ground below it, while throwing it around and catching it back to move effectively.</p>
+                    </div>
+                </div>
+
+                <div class = "container">
+                    <div class = "text">
+                        <p><h3>Code Architecture</h3><br>
+                        
+                        As this game is a 2D platformer, the architecture is the same as every other 2D platformer I've worked on. It is based on <span class = "emph">Finite State Machines</span> and the <span class = "emph">design pattern of the observer</span>. This helped me make fluid transitions between the player states and let the players seamlessly do multiple actions when they want.<br><br>
+                    
+                        The design pattern of the observer lets me use update methods and if statements less frequently. Using this way of coding prevents me from using countless if statements and also prevents the code from breaking when some parts are missing or not used. </p>
+                    </div>
+                    
+                    <div class = "image">
+                        <img src="Projects/DeliveredWithCare/DeliverInsightGif.gif" alt="">
+                    </div>
+                </div>
+
+                <div class = "container">
+                    <div class = "text_end">Thank you for reading!</div>
+                </div>
+
+                <div class = "container">
+                    <div class = "call_to_action">
+                        <a href = "https://lechesnemaxime.itch.io/scrapped-away" target = "_blank">Play the Game!</a>
+                    </div>
+                </div>
+
+                <div class = "container">
+                    <div class = "call_to_action">
+                        <a href = "delivered-with-care.html" style = "scale: -1 1">&#10140;</a>
+                        <a href = "scrapped-away.html">&#10140;</a>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+    </body>
+
+    <script src = "projectscript.js"></script>
+
+</html>

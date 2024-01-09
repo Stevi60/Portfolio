@@ -26,12 +26,7 @@
             </a> 
             
             <div class = "navbar_menu">
-                <button class = "menu_button">Menu</button>
-                
-                <ul class = "menu_list"> 
-                    <li><a href = "/" class = "list_item">Home</a></li>
-                    <li><a href = "up-down-samurai.html" class = "list_item">Next</a></li>
-                </ul>
+                <a href = "index.html#projects" class = "menu_button">Back</a>
             </div>
         </nav>
 
@@ -39,7 +34,11 @@
         <section id = "overview">
             
             <div class = "overview_container">
-                <h2>&#x2022 &#x2022 SHIBANOBI'S REVENGE &#x2022 &#x2022</h2>
+                <div class = "overview_title">
+                    <a style = "scale: -1 1; opacity: 0; cursor: auto;">&#10140;</a>
+                    <h2>&#x2022 SHIBANOBI'S REVENGE &#x2022</h2>
+                    <a href = "up-down-samurai.html">&#10140;</a>
+                </div>
 
                 <div class = "slider_wrap">
                     <div class = "slider_container">
@@ -72,7 +71,7 @@
                     In this project, I was fully in charge of the programming. Each one of us was also in charge of doing level design.
                     </p>
 
-                    <div class = "overview_cta">
+                    <div class = "call_to_action">
                         <a href = "https://steeviee.itch.io/shibanobis-revenge" target = "_blank">Play the Game!</a>
                     </div>
                 </div>
@@ -123,8 +122,14 @@
                 </div>
 
                 <div class = "container">
-                    <div class = "overview_cta">
+                    <div class = "call_to_action">
                         <a href = "https://steeviee.itch.io/shibanobis-revenge" target = "_blank">Play the Game!</a>
+                    </div>
+                </div>
+
+                <div class = "container">
+                    <div class = "call_to_action">
+                        <a href = "up-down-samurai.html">&#10140;</a>
                     </div>
                 </div>
             </div>
@@ -133,50 +138,6 @@
 
     </body>
 
-    <script>
-
-        var slideButtons = document.getElementsByClassName("slide_button");
-
-        function changeSlide() {
-            for (slideButton of slideButtons) { slideButton.classList.remove("active_slide"); }
-            event.currentTarget.classList.add("active_slide");
-            
-            for (let i = 0; i < slideButtons.length; i++) {
-                if (event.currentTarget === slideButtons[i]) {
-                    var target = document.getElementById("slide-" + i);
-                    target.scrollIntoView(false);
-                    target.scrollIntoView({block: 'nearest'});
-                }
-            }
-        }
- 
-    </script>
-
-    <script>
-
-        $(".menu_list").hide()
-        $(document).ready(function(){
-            
-            //Open or close the navigation bar menu if it's clicked on
-            $(".menu_button").click(function(){
-                if (!$(".menu_button").hasClass("menu_open")) {
-                    $(".menu_button").toggleClass("menu_open");
-                        $(".menu_list").delay(200).animate({height: 'toggle'});
-                } else {
-                    $(".menu_list").animate({height: 'toggle'}, function(){
-                        $(".menu_button").toggleClass("menu_open");
-                    });
-                }
-            });
-
-            $(".menu_list li").click(function(){
-                $(".menu_list").delay(100).animate({height: 'hide'}, function(){
-                    $(".menu_button").removeClass("menu_open");
-                });    
-            })
-            
-        })
-
-    </script>
+    <script src = "projectscript.js"></script>
 
 </html>

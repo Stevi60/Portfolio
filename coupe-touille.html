@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+        
+        <meta name = "description" content = "Coupe & Touille is a small pixel art rhythm game. It is the first game I published on the Google Play Store.">
+
+        <title> Steeve Dossou - Portfolio | Coupe & Touille </title>
+
+        <link rel = "stylesheet" href = "/projectstyle.css">
+        <link rel = "stylesheet" href = "/style.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Navigation bar -->
+        <nav class = "navbar">
+            <a href = "/">
+                <img src = "Images/Logos/LogoBlack.png" class = "navbar_logo">
+                <p class = "navbar_title">Steeve Dossou<br>Portfolio</p>
+            </a> 
+            
+            <div class = "navbar_menu">
+                <a href = "index.html#projects" class = "menu_button">Back</a>
+            </div>
+        </nav>
+
+        <!-- Project Overview -->
+        <section id = "overview">
+            
+            <div class = "overview_container">
+                <div class = "overview_title">
+                    <a href = "up-down-samurai.html" style = "scale: -1 1">&#10140;</a>
+                    <h2>&#x2022 COUPE & TOUILLE &#x2022</h2>
+                    <a href = "delivered-with-care.html">&#10140;</a>
+                </div>
+
+                <div class = "slider_wrap">
+                    <div class = "slider_container">
+                        <div class = "slider">
+                            <img src = "Projects/CoupeTouille/CoupeImage5.png" alt = "Cover image of Coupe & Touille" class = "slide" id = "slide-0">
+
+                            <video controls width = "320" height = "240" class = "slide" id = "slide-1">
+                                <source src = "Projects/CoupeTouille/CoupeVideo.mp4" type = "video/mp4">
+                            </video>
+
+                            <img src = "Projects/CoupeTouille/CoupeImage2.png" alt = "The player is opening a menu and choosing the amount of vegetables they want to chop" class = "slide" id = "slide-2">
+
+                            <img src = "Projects/CoupeTouille/CoupeImage3.png" alt = "Carlo Bonissima is preparing himself before he starts cutting the vegetables" class = "slide" id = "slide-3">
+
+                            <img src = "Projects/CoupeTouille/CoupeImage4.png" alt = "Carlo Bonissima is cutting up the vegetables in rhythm" class = "slide" id = "slide-4">
+                        </div> 
+                    </div>
+                    
+                    <div class = "slider_nav">
+                        <div class = "slide_button active_slide" onclick = "changeSlide()"></div>
+                        <div class = "slide_button" onclick = "changeSlide()"></div>
+                        <div class = "slide_button" onclick = "changeSlide()"></div>
+                        <div class = "slide_button" onclick = "changeSlide()"></div>
+                        <div class = "slide_button" onclick = "changeSlide()"></div>
+                    </div>
+                </div>
+               
+                <div class = "overview_desc">
+                    <p> Coupe & Touille is a small rhythm game about cooking a french meal: the Ratatouille. The player has to simply cut the vegetables in rhythm and get the highest score possible. This game is my first published title on the Google Play Store. I published it with the help of <a href = "http://kaisostudio.org" target = "_blank" style = "text-decoration: none; color: #4573eb;">Kaiso Studio</a>, a small design studio I created with a few friends.<br><br>
+                    
+                    Every part of the game was made by me: the game design, the gameplay, as well as the music!</p>
+
+                    <div class = "call_to_action">
+                        <a href = "https://steeviee.itch.io/coupe-touille-la-ratatouille" target = "_blank">Play the Game!</a>
+                        <a href = "https://play.google.com/store/apps/details?id=com.KaisoStudio.CoupeTouille" target = "_blank">Get it on the Store!</a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Project Insight -->
+        <section id = "insight">
+
+            <div class = "insight_container">
+                <h2>&#x2022 INSIGHT &#x2022</h2>
+
+                <div class = "container">
+                    <div class = "image">
+                        <img src="Projects/CoupeTouille/CoupeBannerGif.gif" alt="">
+                    </div>
+
+                    <div class = "text">
+
+                        <p><h3>Code Architecture</h3><br>
+
+                        As Coupe & Touille is a simple game, I was able to implement a simple architecture in order to practice my programming skills. I used <span class = "emph">the design pattern of the observer</span> as the main design pattern for the whole game. I found it very useful as rhythm games generally work around triggers and event calls following the beat of the music. Using this method, I can know when to send notes and how to animate the game on the beat</p>
+
+                        <div class = "image" style = "margin-top: 2rem; width: 100%;">
+                            <img src="Projects/CoupeTouille/CoupeInsightGif.gif" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "container">
+                    <div class = "text_end">Thank you for reading!</div>
+                </div>
+
+                <div class = "container">
+                    <div class = "call_to_action">
+                        <a href = "https://steeviee.itch.io/coupe-touille-la-ratatouille" target = "_blank">Play the Game!</a>
+                        <a href = "https://play.google.com/store/apps/details?id=com.KaisoStudio.CoupeTouille" target = "_blank">Get it on the Store!</a>
+                    </div>
+                </div>
+
+                <div class = "container">
+                    <div class = "call_to_action">
+                        <a href = "up-down-samurai.html" style = "scale: -1 1">&#10140;</a>
+                        <a href = "delivered-with-care.html">&#10140;</a>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+    </body>
+
+    <script src = "projectscript.js"></script>
+
+</html>
