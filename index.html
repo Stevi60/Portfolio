@@ -9,9 +9,9 @@
 
         <title> Steeve Dossou - Portfolio </title>
 
-        <link rel = "stylesheet" href = "/style.css">
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+        <link rel = "stylesheet" href = "style.css">
     </head>
 
     <body>
@@ -199,55 +199,55 @@
             
         </section>
 
-    </body>
+        <script>
 
-    <script>
-
-        var tabButtons = document.getElementsByClassName("tab_button");
-        var tabContents = document.getElementsByClassName("tab_content");
-
-        function openTab(tabName) {
-            /* Remove the "active" class for every tab */
-            for (tabButton of tabButtons) { tabButton.classList.remove("active"); }
-            for (tabContent of tabContents) { tabContent.classList.remove("active"); }
-
-            /* Add the "active" class to the clicked tab */
-            event.currentTarget.classList.add("active");
-            document.getElementById(tabName).classList.add("active");
-        }
-
-        function scrollToSection(targetName) {
-            var target = document.getElementById(targetName);
-            target.scrollIntoView(true);
-        }
-
-    </script>
-
-    <script>
-
-        $(".menu_list").hide()
-        $(document).ready(function(){
-            
-            //Open or close the navigation bar menu if it's clicked on
-            $(".menu_button").click(function(){
-                if (!$(".menu_button").hasClass("menu_open")) {
-                    $(".menu_button").toggleClass("menu_open");
-                        $(".menu_list").delay(200).animate({height: 'toggle'});
-                } else {
-                    $(".menu_list").animate({height: 'toggle'}, function(){
+            var tabButtons = document.getElementsByClassName("tab_button");
+            var tabContents = document.getElementsByClassName("tab_content");
+    
+            function openTab(tabName) {
+                /* Remove the "active" class for every tab */
+                for (tabButton of tabButtons) { tabButton.classList.remove("active"); }
+                for (tabContent of tabContents) { tabContent.classList.remove("active"); }
+    
+                /* Add the "active" class to the clicked tab */
+                event.currentTarget.classList.add("active");
+                document.getElementById(tabName).classList.add("active");
+            }
+    
+            function scrollToSection(targetName) {
+                var target = document.getElementById(targetName);
+                target.scrollIntoView(true);
+            }
+    
+        </script>
+    
+        <script>
+    
+            $(".menu_list").hide()
+            $(document).ready(function(){
+                
+                //Open or close the navigation bar menu if it's clicked on
+                $(".menu_button").click(function(){
+                    if (!$(".menu_button").hasClass("menu_open")) {
                         $(".menu_button").toggleClass("menu_open");
-                    });
-                }
-            });
-
-            $(".menu_list li").click(function(){
-                $(".menu_list").delay(100).animate({height: 'hide'}, function(){
-                    $(".menu_button").removeClass("menu_open");
-                });    
+                            $(".menu_list").delay(200).animate({height: 'toggle'});
+                    } else {
+                        $(".menu_list").animate({height: 'toggle'}, function(){
+                            $(".menu_button").toggleClass("menu_open");
+                        });
+                    }
+                });
+    
+                $(".menu_list li").click(function(){
+                    $(".menu_list").delay(100).animate({height: 'hide'}, function(){
+                        $(".menu_button").removeClass("menu_open");
+                    });    
+                })
+                
             })
-            
-        })
+    
+        </script>
 
-    </script>
+    </body>
 
 </html>
