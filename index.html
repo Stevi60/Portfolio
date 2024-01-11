@@ -190,7 +190,9 @@
                     </div>
                 </div>
                 
-                <form class = "contact_form" action="https://formsubmit.co/steeved.design@gmail.com" method="POST">
+                <form class = "contact_form" action = "https://api.web3forms.com/submit" method = "POST">
+                    <input type = "hidden" name = "access_key" value = "e2bc9073-05d0-401d-8241-da54be9b57e3">
+
                     <input class="form" type="text" name="Name" autocomplete="name" placeholder="Your name..." required>
                     <input class="form" type="email" name="Email" autocomplete="email" placeholder="Your e-mail..." required>
                     <textarea class = "form" name="Message" placeholder="Your message..." required></textarea>
@@ -200,55 +202,56 @@
             
         </section>
 
-        <script>
-
-            var tabButtons = document.getElementsByClassName("tab_button");
-            var tabContents = document.getElementsByClassName("tab_content");
-    
-            function openTab(tabName) {
-                /* Remove the "active" class for every tab */
-                for (tabButton of tabButtons) { tabButton.classList.remove("active"); }
-                for (tabContent of tabContents) { tabContent.classList.remove("active"); }
-    
-                /* Add the "active" class to the clicked tab */
-                event.currentTarget.classList.add("active");
-                document.getElementById(tabName).classList.add("active");
-            }
-    
-            function scrollToSection(targetName) {
-                var target = document.getElementById(targetName);
-                target.scrollIntoView(true);
-            }
-    
-        </script>
-    
-        <script>
-    
-            $(".menu_list").hide()
-            $(document).ready(function(){
-                
-                //Open or close the navigation bar menu if it's clicked on
-                $(".menu_button").click(function(){
-                    if (!$(".menu_button").hasClass("menu_open")) {
-                        $(".menu_button").toggleClass("menu_open");
-                            $(".menu_list").delay(200).animate({height: 'toggle'});
-                    } else {
-                        $(".menu_list").animate({height: 'toggle'}, function(){
-                            $(".menu_button").toggleClass("menu_open");
-                        });
-                    }
-                });
-    
-                $(".menu_list li").click(function(){
-                    $(".menu_list").delay(100).animate({height: 'hide'}, function(){
-                        $(".menu_button").removeClass("menu_open");
-                    });    
-                })
-                
-            })
-    
-        </script>
 
     </body>
 
+    <script>
+
+        var tabButtons = document.getElementsByClassName("tab_button");
+        var tabContents = document.getElementsByClassName("tab_content");
+
+        function openTab(tabName) {
+            /* Remove the "active" class for every tab */
+            for (tabButton of tabButtons) { tabButton.classList.remove("active"); }
+            for (tabContent of tabContents) { tabContent.classList.remove("active"); }
+
+            /* Add the "active" class to the clicked tab */
+            event.currentTarget.classList.add("active");
+            document.getElementById(tabName).classList.add("active");
+        }
+
+        function scrollToSection(targetName) {
+            var target = document.getElementById(targetName);
+            target.scrollIntoView(true);
+        }
+
+    </script>
+
+    <script>
+
+        $(".menu_list").hide()
+        $(document).ready(function(){
+            
+            //Open or close the navigation bar menu if it's clicked on
+            $(".menu_button").click(function(){
+                if (!$(".menu_button").hasClass("menu_open")) {
+                    $(".menu_button").toggleClass("menu_open");
+                        $(".menu_list").delay(200).animate({height: 'toggle'});
+                } else {
+                    $(".menu_list").animate({height: 'toggle'}, function(){
+                        $(".menu_button").toggleClass("menu_open");
+                    });
+                }
+            });
+
+            $(".menu_list li").click(function(){
+                $(".menu_list").delay(100).animate({height: 'hide'}, function(){
+                    $(".menu_button").removeClass("menu_open");
+                });    
+            })
+            
+        })
+
+    </script>
+    
 </html>
