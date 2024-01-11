@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+        
+        <meta name = "description" content = "HIVE is a Virtual Reality audio fiction where the player has to make his own choices.">
+
+        <title> Steeve Dossou - Portfolio | HIVE </title>
+
+        <link rel = "stylesheet" href = "/projectstyle.css">
+        <link rel = "stylesheet" href = "/style.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Navigation bar -->
+        <nav class = "navbar">
+            <a href = "/">
+                <img src = "Images/Logos/LogoBlack.png" class = "navbar_logo">
+                <p class = "navbar_title">Steeve Dossou<br>Portfolio</p>
+            </a> 
+            
+            <div class = "navbar_menu">
+                <a href = "index.html#projects" class = "menu_button">Back</a>
+            </div>
+        </nav>
+
+        <!-- Project Overview -->
+        <section id = "overview">
+            
+            <div class = "overview_container">
+                <div class = "overview_title">
+                    <a href = "scrapped-away.html" style = "scale: -1 1">&#10140;</a>
+                    <h2>&#x2022 HIVE &#x2022</h2>
+                    <a style = "scale: -1 1; opacity: 0; cursor: auto;">&#10140;</a>
+                </div>
+
+                <div class = "slider_wrap">
+                    <div class = "slider_container">
+                        <div class = "slider">
+                            <img src = "Projects/Hive/HiveImage1.png" alt = "Cover image of Scrapped Away" class = "slide" id = "slide-0">
+
+                            <video controls width = "320" height = "240" class = "slide" id = "slide-1">
+                                <source src = "Projects/Hive/HiveVideo.mp4" type = "video/mp4">
+                            </video>
+
+                            <img src = "Projects/Hive/HiveImage2.png" alt = "The delivery boy is throwing the package up." class = "slide" id = "slide-2" >
+
+                            <img src = "Projects/Hive/HiveImage3.png" alt = "The delivery boy is jumping towards the package." class = "slide" id = "slide-3" >
+                        </div> 
+                    </div>
+                    
+                    <div class = "slider_nav">
+                        <div class = "slide_button active_slide" onclick = "changeSlide()"></div>
+                        <div class = "slide_button" onclick = "changeSlide()"></div>
+                        <div class = "slide_button" onclick = "changeSlide()"></div>
+                        <div class = "slide_button" onclick = "changeSlide()"></div>
+                    </div>
+                </div>
+               
+                <div class = "overview_desc">
+                    <p> HIVE is a virtual reality audio fiction where the user plays a scientist in a post-apocalyptic world, that has to save bees from going extinct in order to prevent the wildlife and the flora to die. In this game, the player has to make choices that impact the story and save an artificial bee that was created by the scientist. This project was created during a 2 year long workshop in a team of 8 in the first year, and 11 in the second.<br><br>
+                    
+                    I was in charge of coding and integration of my colleagues' work. I coded the game in C# with Unity.</p>
+
+                    <div class = "call_to_action">
+                        <a href = "https://www.instagram.com/hive.fiction/" target = "_blank">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Project Insight -->
+        <section id = "insight">
+
+            <div class = "insight_container">
+                <h2>&#x2022 INSIGHT &#x2022</h2>
+
+                <div class = "container">
+                </div>
+
+                <div class = "container">
+
+                    <div class = "text">
+                        <p><h3>Gameplay Design</h3><br>
+                        
+                        The point of HIVE is to keep the player immersed into the experience and the story. The leads of the project didn't want the player to click on menus to make choices. They wanted the player to make gestures that look like the action the character they are playing is going to take.</p>
+
+                        <video autoplay muted loop class = "image" style = "margin-top: 2rem; width: 100%; object-fit: fill;">
+                            <source src = "Projects/Hive/HiveInsightVideo.mp4" type = "video/mp4">
+                        </video>
+                    </div>
+
+                    <div class = "text">
+                        <p><h3>Unity Tools</h3><br>
+                        
+                        In order to create the gestures that players had to take, I created a small tool that didn't have any UI to help me make the gestures faster. When I launched the game in the editor in a "gesture creation" mode, I could record the movements of the controllers when I pressed the triggers. Then, through code, it creates a custom class containing an array of points and other data that gets stored in a list. This list is then used to verify if the player has done a similar gesture to validate a specific choice.<br><br>
+                    
+                        I also made a tool that facilitates the integration of the story elements. This tool is made up of a script that reads and parses a narrative document, written in a specific way, in order to find all of the dialogue and all the available choices. The script then puts every piece of dialogue and choice in their respective order, making up the story elements inside the game as they were in the document. This way, the narrative designers could change up the story and add onto it whenever they needed.</p>
+                    </div>
+                </div>
+
+                <div class = "container">
+                    <div class = "text_end">Thank you for reading!</div>
+                </div>
+
+                <div class = "container">
+                    <div class = "call_to_action">
+                        <a href = "https://www.instagram.com/hive.fiction/" target = "_blank">Learn More</a>
+                    </div>
+                </div>
+
+                <div class = "container">
+                    <div class = "call_to_action">
+                        <a href = "scrapped-away.html" style = "scale: -1 1">&#10140;</a>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+    </body>
+
+    <script src = "projectscript.js"></script>
+
+</html>
