@@ -305,6 +305,7 @@ html,body
     position: relative;
 
     background-color: #cfdcfd;
+    cursor: pointer;
 }
 
 .tab_button::after {
@@ -316,6 +317,7 @@ html,body
     position: absolute;
 
     background-color: #cfdcfd;
+    cursor: pointer;
 
     transition: 0.25s;
 }
@@ -329,6 +331,7 @@ html,body
     position: absolute;
 
     background-color: #4573eb;
+    cursor: pointer;
 
     transition: 0.25s;
 }
