@@ -7,11 +7,13 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
         <meta name = "description" content = "Coupe & Touille is a small pixel art rhythm game. It is the first game I published on the Google Play Store.">
+        <link rel="icon" type="image/png" href="Images/Logos/LogoOnlyColor.png">
 
         <link rel = "stylesheet" href = "./projectstyle.css">
         <link rel = "stylesheet" href = "./style.css">
 
         <title> Steeve Dossou - Portfolio | Coupe & Touille </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
 
     <body>
@@ -24,7 +26,18 @@
             </a> 
             
             <div class = "navbar_menu">
-                <a href = "index.html#projects" class = "menu_button">Back</a>
+                <div class="english">
+                    <a href = "index.html#projects" class = "menu_button">Back</a>
+                </div>
+
+                <div class="french">
+                    <a href = "index.html#projects" class = "menu_button">Retour</a>
+                </div>
+
+                <div class = menu_options>
+                    <button class = "language_button active" id = "english_button" onclick = "changeLanguage('english')"></button>
+                    <button class = "language_button" id = "french_button" onclick = "changeLanguage('french')"></button> 
+                </div>
             </div>
         </nav>
 
@@ -65,13 +78,19 @@
                 </div>
                
                 <div class = "overview_desc">
-                    <p> Coupe & Touille is a small rhythm game about cooking a french meal: the Ratatouille. The player has to simply cut the vegetables in rhythm and get the highest score possible. This game is my first published title on the Google Play Store. I published it with the help of <a href = "http://kaisostudio.org" target = "_blank" style = "text-decoration: none; color: #4573eb;">Kaiso Studio</a>, a small design studio I created with a few friends.<br><br>
+                    <p class = "english"> Coupe & Touille is a small rhythm game about cooking a french meal: the Ratatouille. The player has to simply cut the vegetables in rhythm and get the highest score possible. This game is my first published title on the Google Play Store. I published it with the help of <a href = "http://kaisostudio.org" target = "_blank" style = "text-decoration: none; color: #4573eb;">Kaiso Studio</a>, a small design studio I created with a few friends.<br><br>
                     
                     Every part of the game was made by me: the game design, the gameplay, as well as the music!</p>
 
+                    <p class = "french"> Coupe & Touille est un petit jeu de rythme sur la cuisine d'un plat français: la Ratatouille. Le joueur doit tout simplement couper les légumes en rythme et avoir le score le plus élevé possible. Ce jeu est mon premier titre publié sur le Google Play Store. Il a été publié avec l'aide de <a href = "http://kaisostudio.org" target = "_blank" style = "text-decoration: none; color: #4573eb;">Kaiso Studio</a>, un jeune studio de design que j'ai créé avec quelques amis.<br><br>
+                    
+                    Tout a été fait par moi: le game design, le gameplay, de même que la musique!</p>
+
                     <div class = "call_to_action">
-                        <a href = "https://steeviee.itch.io/coupe-touille-la-ratatouille" target = "_blank">Play the Game!</a>
-                        <a href = "https://play.google.com/store/apps/details?id=com.KaisoStudio.CoupeTouille" target = "_blank">Get it on the Store!</a>
+                        <a href = "https://steeviee.itch.io/coupe-touille-la-ratatouille" class = "english" target = "_blank">Play the Game!</a>
+                        <a href = "https://play.google.com/store/apps/details?id=com.KaisoStudio.CoupeTouille" class = "english" target = "_blank">Get it on the Store!</a>
+                        <a href = "https://steeviee.itch.io/coupe-touille-la-ratatouille" class = "french" target = "_blank">Jouez au jeu!</a>
+                        <a href = "https://play.google.com/store/apps/details?id=com.KaisoStudio.CoupeTouille" class = "french" target = "_blank">Prenez-le sur le Play Store!</a>
                     </div>
                 </div>
             </div>
@@ -82,15 +101,15 @@
         <section id = "insight">
 
             <div class = "insight_container">
-                <h2>&#x2022 INSIGHT &#x2022</h2>
+                <h2 class = "english">&#x2022 INSIGHT &#x2022</h2>
+                <h2 class = "french">&#x2022 DÉTAILS &#x2022</h2>
 
                 <div class = "container">
                     <div class = "image">
                         <img src="Projects/CoupeTouille/CoupeBannerGif.gif" alt="">
                     </div>
 
-                    <div class = "text">
-
+                    <div class = "text english">
                         <p><h3>Code Architecture</h3><br>
 
                         As Coupe & Touille is a simple game, I was able to implement a simple architecture in order to practice my programming skills. I used <span class = "emph">the design pattern of the observer</span> as the main design pattern for the whole game. I found it very useful as rhythm games generally work around triggers and event calls following the beat of the music. Using this method, I can know when to send notes and how to animate the game on the beat</p>
@@ -99,16 +118,29 @@
                             <img src="Projects/CoupeTouille/CoupeInsightGif.gif" alt="">
                         </div>
                     </div>
+
+                    <div class = "text french">
+                        <p><h3>Architecture du code</h3><br>
+
+                        Étant donné que Coupe & Touille est un jeu simple, j'étais capable de créer une architecture simple afin d'entraîner mes compétences en programmation. J'ai utilisé <span class = "emph">le design pattern de l'observateur</span>  pour l'intégralité du jeu. J'ai trouvé qu'il était très utile pusique les jeux de rythme fonctionnent souvent grâce à des triggers et des events suivant le tempo de la musique. Grâce à cette méthode, je peux savoir exactement quand il faut envoyer des notes et comment animer le jeu en suivant le tempo.</p>
+
+                        <div class = "image" style = "margin-top: 2rem; width: 100%;">
+                            <img src="Projects/CoupeTouille/CoupeInsightGif.gif" alt="">
+                        </div>
+                    </div>
                 </div>
 
                 <div class = "container">
-                    <div class = "text_end">Thank you for reading!</div>
+                    <div class = "text_end english">Thank you for reading!</div>
+                    <div class = "text_end french">Merci de votre lecture!</div>
                 </div>
 
                 <div class = "container">
                     <div class = "call_to_action">
-                        <a href = "https://steeviee.itch.io/coupe-touille-la-ratatouille" target = "_blank">Play the Game!</a>
-                        <a href = "https://play.google.com/store/apps/details?id=com.KaisoStudio.CoupeTouille" target = "_blank">Get it on the Store!</a>
+                        <a href = "https://steeviee.itch.io/coupe-touille-la-ratatouille" class = "english" target = "_blank">Play the Game!</a>
+                        <a href = "https://play.google.com/store/apps/details?id=com.KaisoStudio.CoupeTouille" class = "english" target = "_blank">Get it on the Store!</a>
+                        <a href = "https://steeviee.itch.io/coupe-touille-la-ratatouille" class = "french" target = "_blank">Jouez au jeu!</a>
+                        <a href = "https://play.google.com/store/apps/details?id=com.KaisoStudio.CoupeTouille" class = "french" target = "_blank">Prenez-le sur le Play Store!</a>
                     </div>
                 </div>
 
@@ -124,6 +156,7 @@
         
     </body>
     
-    <script src = "projectscript.js"></script>
+    <script src = "projectslider.js"></script>
+    <script src = "language.js"></script>
 
 </html>

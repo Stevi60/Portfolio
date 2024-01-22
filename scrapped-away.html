@@ -7,12 +7,13 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
         <meta name = "description" content = "Scrapped Away is a 3D action game where the player fights against a single boss on his ship.">
+        <link rel="icon" type="image/png" href="Images/Logos/LogoOnlyColor.png">
 
         <link rel = "stylesheet" href = "./projectstyle.css">
         <link rel = "stylesheet" href = "./style.css">
 
         <title> Steeve Dossou - Portfolio | Scrapped Away </title>
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
 
     <body>
@@ -25,7 +26,18 @@
             </a> 
             
             <div class = "navbar_menu">
-                <a href = "index.html#projects" class = "menu_button">Back</a>
+                <div class="english">
+                    <a href = "index.html#projects" class = "menu_button">Back</a>
+                </div>
+
+                <div class="french">
+                    <a href = "index.html#projects" class = "menu_button">Retour</a>
+                </div>
+
+                <div class = menu_options>
+                    <button class = "language_button active" id = "english_button" onclick = "changeLanguage('english')"></button>
+                    <button class = "language_button" id = "french_button" onclick = "changeLanguage('french')"></button> 
+                </div>
             </div>
         </nav>
 
@@ -66,12 +78,17 @@
                 </div>
                
                 <div class = "overview_desc">
-                    <p> Scrapped Away is an action game where you play as a captive robot on a pirate ship. Your mission is to defeat its boos with the help of various weapons. This game was the project I carried out in a team of 7 for the final year of my Master's Degree at Nantes Ynov Campus. I was in charge of making all of the gameplay mechanics and all of the code's architecture.<br><br>
+                    <p class = "english"> Scrapped Away is an action game where you play as a captive robot on a pirate ship. Your mission is to defeat its boss with the help of various weapons. This game was the project I carried out in a team of 7 for the final year of my Master's Degree at Nantes Ynov Campus. I was in charge of making all of the gameplay mechanics and all of the code's architecture.<br><br>
 
                     This game was made using Unreal Engine 5 and I made all of the code using Blueprints.</p>
+                    
+                    <p class = "french"> Scrapped Away est un jeu d'action où le joueur incarne un robot captif sur un bateau pirate. Votre mission est de battre son capitaine avec l'aide de plusieurs armes. Ce jeu est le projet que j'ai eu à faire dans une équipe de 7 pour ma dernière année de Mastère à Nantes Ynov Campus. J'étais en charge de faire toute les mécaniques de gameplay ainsi que toute l'architecture du code.<br><br>
+
+                    Ce jeu a été fait sur Unreal Engine 5 et j'ai fait le code à l'aide de blueprints.</p>
 
                     <div class = "call_to_action">
-                        <a href = "https://lechesnemaxime.itch.io/scrapped-away" target = "_blank">Play the Game!</a>
+                        <a href = "https://lechesnemaxime.itch.io/scrapped-away" class = "english" target = "_blank">Play the Game!</a>
+                        <a href = "https://lechesnemaxime.itch.io/scrapped-away" class = "french" target = "_blank">Jouez au jeu!</a>
                     </div>
                 </div>
             </div>
@@ -82,27 +99,42 @@
         <section id = "insight">
 
             <div class = "insight_container">
-                <h2>&#x2022 INSIGHT &#x2022</h2>
+                <h2 class = "english">&#x2022 INSIGHT &#x2022</h2>
+                <h2 class = "french">&#x2022 DÉTAILS &#x2022</h2>
 
                 <div class = "container">
                     <video autoplay muted loop class = "image">
                         <source src = "Projects/ScrappedAway/ScrappedGif.mp4" type = "video/mp4">
                     </video>
 
-                    <div class = "text">
+                    <div class = "text english">
                         <p><h3>Gameplay Design</h3><br>
                         
-                        In order to have a satisfying mechanics, the gameplay is fast and reactive. Having a satisfying gameplay implies having good game feel and a snappy input buffer. Therefore, I added <span class = "emph">Hit Stop</span>, <span class = "emph">Dashing</span> and a <span class = "emph">satisfying attack pattern</span> to make the game feel very good. </p>
+                        In order to have satisfying mechanics, the gameplay has to be fast and reactive. Having a satisfying gameplay implies having good game feel and snappy actions. Therefore, I added <span class = "emph">Hit Stop</span>, <span class = "emph">Dashing</span> and a <span class = "emph">satisfying attack pattern</span> to make the game feel very good. </p>
+                    </div>
+
+                    <div class = "text french">
+                        <p><h3>Design du Gameplay</h3><br>
+                        
+                        Afin d'avoir des mécaniques satisfaisantes, le gameplay doit être rapide et réactif. Cela veut dire que nous avons besoin d'un bon game feel et aussi d'actions rapides. Dans cette optique, j'ai ajouté du <span class = "emph">Hit Stop</span>, un <span class = "emph">Dash</span> et une <span class = "emph">succession d'attaques satisfaisantes</span> qui donnent un très bon game feel. </p>
                     </div>
                 </div>
 
                 <div class = "container">
-                    <div class = "text">
+                    <div class = "text english">
                         <p><h3>Code Architecture</h3><br>
                         
                         The architecture of this game is based on the <span class="emph">design pattern of the observer</span>, the <span class="emph">design pattern of the singleton</span> and <span class="emph">Finite State Machines</span>. I made it like this because the game is rather simple and only involves actions surrounding the player character.<br><br>
                     
                         As the player uses a lot of weapons, I created a custom modular weapon class and enumerator whose behaviour don't need to be updated with if statements or additional code in the scripts, thanks to the design pattern of the observer.</p>
+                    </div>
+
+                    <div class = "text french">
+                        <p><h3>Architecture du code</h3><br>
+                        
+                        L'architecture du jeu est basée sur le <span class="emph">design pattern de l'observateur</span>, le <span class="emph">design pattern du singleton</span> et les <span class="emph">Finite State Machines</span>. Je l'ai fait comme ça car le jeu est plutôt simple et toutes les actions tournent autour du personnage principal.<br><br>
+                    
+                        Étant donné que le joueur utilise plusieurs armes, j'ai créé une classe personnalisée et un énumérateur modulables pour les armes. Grâce au design pattern de l'observateur, leur comportement n'a pas besoin d'être mis à jour avec des conditions if ou du code additionnel dans les scripts.</p>
                     </div>
                     
                     <div class = "image">
@@ -111,12 +143,14 @@
                 </div>
 
                 <div class = "container">
-                    <div class = "text_end">Thank you for reading!</div>
+                    <div class = "text_end english">Thank you for reading!</div>
+                    <div class = "text_end french">Merci de votre lecture!</div>
                 </div>
 
                 <div class = "container">
                     <div class = "call_to_action">
-                        <a href = "https://lechesnemaxime.itch.io/scrapped-away" target = "_blank">Play the Game!</a>
+                        <a href = "https://lechesnemaxime.itch.io/scrapped-away" class = "english" target = "_blank">Play the Game!</a>
+                        <a href = "https://lechesnemaxime.itch.io/scrapped-away" class = "french" target = "_blank">Jouez au jeu!</a>
                     </div>
                 </div>
 
@@ -132,6 +166,7 @@
 
     </body>
 
-    <script src = "projectscript.js"></script>
+    <script src = "projectslider.js"></script>
+    <script src = "language.js"></script>
 
 </html>

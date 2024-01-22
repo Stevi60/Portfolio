@@ -29,11 +29,19 @@
                 <button class = "menu_button">Menu</button>
                 
                 <ul class = "menu_list"> 
-                    <li onclick = "scrollToSection('game')"><div class = "list_item">Game</div></li>
-                    <li onclick = "scrollToSection('about')"><div class = "list_item">About</div></li>
-                    <li onclick = "scrollToSection('projects')"><div class = "list_item">Projects</div></li>
+                    <!-- <li onclick = "scrollToSection('game')" class = "english"><div class = "list_item">Game</div></li> -->
+                    <!-- <li onclick = "scrollToSection('game')" class = "french"><div class = "list_item">Game</div></li> -->
+                    <li onclick = "scrollToSection('about')" class = "english"><div class = "list_item">About</div></li>
+                    <li onclick = "scrollToSection('about')" class = "french"><div class = "list_item">Àpropos</div></li>
+                    <li onclick = "scrollToSection('projects')" class = "english"><div class = "list_item">Projects</div></li>
+                    <li onclick = "scrollToSection('projects')" class = "french"><div class = "list_item">Projets</div></li>
                     <li onclick = "scrollToSection('contact')"><div class = "list_item">Contact</div></li>
                 </ul>
+
+                <div class = menu_options>
+                    <button class = "language_button active" id = "english_button" onclick = "changeLanguage('english')"></button>
+                    <button class = "language_button" id = "french_button" onclick = "changeLanguage('french')"></button> 
+                </div>
             </div>
         </nav>
 
@@ -47,7 +55,8 @@
 
             <div class = "about_container">
                 <div class = "about_title">
-                    <h2>&#x2022 ABOUT ME &#x2022</h2>
+                    <h2 class = "english">&#x2022 ABOUT ME &#x2022</h2>
+                    <h2 class = "french" style = "text-align: center; margin-bottom: 3rem;">&#x2022 À PROPOS &#x2022<br>DE MOI</h2>
     
                     <div class = "about_image">
                         <img src = "Images/Logos/SteevieTitle.png">
@@ -55,51 +64,93 @@
                 </div>
                 
                 <div class = "about_desc">
-                    Ever since I was 11 years old, I was fascinated with the fact that I could create my own video games. Driven by pure passion and motivation, I've been honing and perfecting my craft in gameplay programming and game design.
+                    <p class = "english"> Ever since I was 11 years old, I was fascinated with the fact that I could create my own video games. Driven by pure passion and motivation, I've been honing and perfecting my craft in gameplay programming and game design.</p>
+                    <p class = "french"> Depuis que j'avais 11 ans, j'étais fasciné par le fait que je pouvais créer mes propres jeux-vidéo. Depuis lors, animé d'une passion et d'une motivation inébranlables, je me perfectionne de plus en plus en gameplay programming et en game design.</p>
 
-                    <div class="tabs">
-                        <div class="tab_buttons">
-                            <div class="tab_button active" onclick = "openTab('skills')"></div>
-                            <div class="tab_button" onclick = "openTab('experience')"></div>
-                            <div class="tab_button" onclick = "openTab('education')"></div>
+                    <div class = "tabs_wrap">
+                        <div class = "slide_buttons">
+                            <div class = "slide_button active_slide" onclick = "changeSlide()"></div>
+                            <div class = "slide_button" onclick = "changeSlide()"></div>
+                            <div class = "slide_button" onclick = "changeSlide()"></div>
                         </div>
 
-                        <p class="tab_content active" id = "skills">
-                            <span class = "inline_title">SKILLS</span><br><br>
-                            
-                            <span class = "inline_subtitle">Gameplay programming</span><br>
-                            Very strong knowledge of <span class = "small_emph">Unity</span>, <span class = "small_emph">C#</span> and <span class = "small_emph">Git version control</span>. Good skills in <span class = "small_emph">Unreal Engine</span> and <span class = "small_emph">blueprints</span>.<br><br>
-                            
-                            <span class = "inline_subtitle">Game Design</span><br>
-                            Excellent skills in designing <span class = "small_emph">game mechanics</span> and <span class = "small_emph">player mechanics</span>. Very reliable in <span class = "small_emph">level design</span>.<br><br>
+                        <div class = "slider_container">
+                            <div class = "tab_slider">
+                                <p class="tab english" id = "slideEn-0">
+                                <span class = "inline_title">SKILLS</span><br><br>
+                                
+                                <span class = "inline_subtitle">Gameplay programming</span><br>
+                                Very strong knowledge of <span class = "small_emph">Unity</span>, <span class = "small_emph">C#</span> and <span class = "small_emph">Git version control</span>. Good skills in <span class = "small_emph">Unreal Engine</span> and <span class = "small_emph">blueprints</span>.<br><br>
+                                
+                                <span class = "inline_subtitle">Game Design</span><br>
+                                Excellent skills in designing <span class = "small_emph">game mechanics</span> and <span class = "small_emph">player mechanics</span>. Very reliable in <span class = "small_emph">level design</span>.<br><br>
+    
+                                <span class = "inline_subtitle">3D Modeling</span><br>
+                                Good knowledge of <span class = "small_emph">Blender</span>. Reliable skills in <span class = "small_emph">box modeling</span> and <span class = "small_emph">sculpting</span>.<br><br>
+                                </p>
 
-                            <span class = "inline_subtitle">3D Modeling</span><br>
-                            Good knowledge of <span class = "small_emph">Blender</span>. Reliable skills in <span class = "small_emph">box modeling</span> and <span class = "small_emph">sculpting</span>.<br><br>
-                        </p>
+                                <p class="tab english" id = "slideEn-1">
+                                <span class = "inline_title">EXPERIENCE</span><br><br>
+                                
+                                <span class = "inline_title">Kaiso Studio</span><br>
+                                <span class = "inline_subtitle">Jan. 2022 - Present</span><br>
+                                <span class = "small_emph">Cofounder</span> of a <span class = "small_emph">multidisciplinary design studio</span>. <span class = "small_emph">Lead Game designer</span> and <span class = "small_emph">gameplay programmer</span>.<br><br>
+                                
+                                <span class = "inline_title">Jellyfox</span><br>
+                                <span class = "inline_subtitle">Jan. 2021 - Feb. 2021</span><br>
+                                Two months internship in a small game development studio. Designed and coded <span class = "small_emph">3 arcade games</span> played with <span class = "small_emph">alternative controllers</span>.<br><br>
+                                </p>
+        
+                                <p class="tab english" id = "slideEn-2">
+                                <span class = "inline_title">EDUCATION</span><br><br>
+                                
+                                <span class = "inline_title">Nantes Ynov Campus</span><br>
+                                <span class = "inline_subtitle">Sept. 2021 - Sept. 2023</span><br>
+                                Master in <span class = "small_emph">3D game art</span> and <span class = "small_emph">game development</span>.<br><br>
+                                
+                                <span class = "inline_title">L'École de design Nantes Atlantique</span><br>
+                                <span class = "inline_subtitle">Sept. 2018 - Jun. 2021</span><br>
+                                Bachelor in <span class = "small_emph">game design</span> and <span class = "small_emph">game development</span>.<br><br>
+                                </p>
 
-                        <p class="tab_content" id = "experience">
-                            <span class = "inline_title">EXPERIENCE</span><br><br>
-                            
-                            <span class = "inline_title">Kaiso Studio</span><br>
-                            <span class = "inline_subtitle">Jan. 2022 - Present</span><br>
-                            <span class = "small_emph">Cofounder</span> of a <span class = "small_emph">multidisciplinary design studio</span>. <span class = "small_emph">Lead Game designer</span> and <span class = "small_emph">gameplay programmer</span>.<br><br>
-                            
-                            <span class = "inline_title">Jellyfox</span><br>
-                            <span class = "inline_subtitle">Jan. 2021 - Feb. 2021</span><br>
-                            Two months internship in a small game development studio. Designed and coded <span class = "small_emph">3 arcade games</span> played with <span class = "small_emph">alternative controllers</span>.<br><br>
-                        </p>
+                                <p class="tab french" id = "slideFr-0">
+                                <span class = "inline_title">COMPÉTENCES</span><br><br>
+                        
+                                <span class = "inline_subtitle">Gameplay programming</span><br>
+                                Une excellente connaissance de <span class = "small_emph">Unity</span>, du <span class = "small_emph">C#</span> et du <span class = "small_emph">contrôle de versions sur Git</span>. De bonnes compétences sur <span class = "small_emph">Unreal Engine</span> et en <span class = "small_emph">blueprints</span>.<br><br>
+                                
+                                <span class = "inline_subtitle">Game Design</span><br>
+                                D'excellentes compétences en design de <span class = "small_emph">mécaniques de gameplay</span> et en <span class = "small_emph">mécaniques du joueur</span>. Des compétences très fiables en <span class = "small_emph">level design</span>.<br><br>
 
-                        <p class="tab_content" id = "education">
-                            <span class = "inline_title">EDUCATION</span><br><br>
-                            
-                            <span class = "inline_title">Nantes Ynov Campus</span><br>
-                            <span class = "inline_subtitle">Sept. 2021 - Sept. 2023</span><br>
-                            Master in <span class = "small_emph">3D game art</span> and <span class = "small_emph">game development</span>.<br><br>
-                            
-                            <span class = "inline_title">L'École de design Nantes Atlantique</span><br>
-                            <span class = "inline_subtitle">Sept. 2018 - Jun. 2021</span><br>
-                            Bachelor in <span class = "small_emph">game design</span> and <span class = "small_emph">game development</span>.<br><br>
-                        </p>
+                                <span class = "inline_subtitle">Modélisation 3D</span><br>
+                                Une bonne connaissance de <span class = "small_emph">Blender</span>. Des compétences fiables en <span class = "small_emph">box modeling</span> et en <span class = "small_emph">sculpting</span>.<br><br>
+                                </p>
+
+                                <p class="tab french" id = "slideFr-1">
+                                <span class = "inline_title">EXPÉRIENCE</span><br><br>
+                        
+                                <span class = "inline_title">Kaiso Studio</span><br>
+                                <span class = "inline_subtitle">Jan. 2022 - Présent</span><br>
+                                <span class = "small_emph">Cofondateur</span> d'un <span class = "small_emph">studio de design multidisciplinaire</span>. <span class = "small_emph">Lead Game designer</span> et <span class = "small_emph">gameplay programmer</span>.<br><br>
+                                
+                                <span class = "inline_title">Jellyfox</span><br>
+                                <span class = "inline_subtitle">Jan. 2021 - Fév. 2021</span><br>
+                                Stage de 2 mois dans un petit studio de développement de jeux-vidéo. J'ai fait la conception et la programmation de <span class = "small_emph">3 jeux d'arcade</span> joués avec des <span class = "small_emph">contrôleurs alternatifs</span>.<br><br>
+                                </p>
+        
+                                <p class="tab french" id = "slideFr-2">
+                                <span class = "inline_title">ÉDUCATION</span><br><br>
+                        
+                                <span class = "inline_title">Nantes Ynov Campus</span><br>
+                                <span class = "inline_subtitle">Sept. 2021 - Sept. 2023</span><br>
+                                Mastère en <span class = "small_emph">game art 3D</span> et en <span class = "small_emph">game development</span>.<br><br>
+                                
+                                <span class = "inline_title">L'École de design Nantes Atlantique</span><br>
+                                <span class = "inline_subtitle">Sept. 2018 - Juin 2021</span><br>
+                                Bachelor en <span class = "small_emph">game design</span> et en <span class = "small_emph">game development</span>.<br><br>
+                                </p>
+                            </div> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -110,13 +161,21 @@
         <section id = "projects">
 
             <div class = "projects_container">
-                <h2>&#x2022 PROJECTS &#x2022</h2>
+                <h2 class = "english">&#x2022 PROJECTS &#x2022</h2>
+                <h2 class = "french">&#x2022 PROJETS &#x2022</h2>
 
-                <div class = "projects_tip">(Hold your finger on a card to preview it.)</div>
+                <div class = "english">
+                    <div class = "projects_tip">(Hold your finger on a card to preview it.)</div>
+                </div>
+
+                <div class = "french">
+                    <div class = "projects_tip" style = "text-align: center;">(Maintenez votre doigt sur une carte pour la prévisualiser.)</div>
+                </div>
 
                 <div class = "projects_grid">
                     <a class = "project" id = "shibanobis-revenge" href = "shibanobis-revenge.html">
-                        <div class = "project_subtitle">&#x2022 Team &#x2022</div>
+                        <div class = "project_subtitle english">&#x2022 Team &#x2022</div>
+                        <div class = "project_subtitle french">&#x2022 Équipe &#x2022</div>
                         <div class = "project_title">Shibanobi's Revenge</div>
                         <div class="project_icons">
                             <div class = "project_genre"></div>
@@ -143,7 +202,8 @@
                     </a>
     
                     <a class = "project" id = "delivered-with-care" href = "delivered-with-care.html">
-                        <div class = "project_subtitle">&#x2022 Team &#x2022</div>
+                        <div class = "project_subtitle english">&#x2022 Team &#x2022</div>
+                        <div class = "project_subtitle french">&#x2022 Équipe &#x2022</div>
                         <div class = "project_title">Delivered With Care</div>
                         <div class="project_icons">
                             <div class = "project_genre"></div>
@@ -152,7 +212,8 @@
                     </a>
     
                     <a class = "project" id = "scrapped-away" href = "scrapped-away.html">
-                        <div class = "project_subtitle">&#x2022 Team &#x2022</div>
+                        <div class = "project_subtitle english">&#x2022 Team &#x2022</div>
+                        <div class = "project_subtitle french">&#x2022 Équipe &#x2022</div>
                         <div class = "project_title">Scrapped Away</div>
                         <div class="project_icons">
                             <div class = "project_genre"></div>
@@ -160,8 +221,9 @@
                         </div>
                     </a>
     
-                    <a class = "project" id = "hive" href = "hive">
-                        <div class = "project_subtitle">&#x2022 Team &#x2022</div>
+                    <a class = "project" id = "hive" href = "hive.html">
+                        <div class = "project_subtitle english">&#x2022 Team &#x2022</div>
+                        <div class = "project_subtitle french">&#x2022 Équipe &#x2022</div>
                         <div class = "project_title">HIVE</div>
                         <div class="project_icons">
                             <div class = "project_genre"></div>
@@ -175,7 +237,7 @@
 
         <!-- Contact Section -->
         <section id = "contact">
-
+            <div class = "english">
             <div class = "contact_container">
                 <div class = "contact_title">
                     <h2>&#x2022 GET IN TOUCH &#x2022</h2>
@@ -191,36 +253,56 @@
                     </div>
                 </div>
                 
+                
                 <form class = "contact_form" action = "https://api.web3forms.com/submit" method = "POST">
                     <input type = "hidden" name = "access_key" value = "e2bc9073-05d0-401d-8241-da54be9b57e3">
 
                     <input class="form" type="text" name="Name" autocomplete="name" placeholder="Your name..." required>
                     <input class="form" type="email" name="Email" autocomplete="email" placeholder="Your e-mail..." required>
                     <textarea class = "form" name="Message" placeholder="Your message..." required></textarea>
-                    <button class="form_button" type="submit">Send</button>
+                    <button class="form_button english" type="submit">Send</button>
                 </form>
+            </div>
+            </div>
+
+            <div class="french">
+            <div class = "contact_container">
+                <div class = "contact_title">
+                    <h2>&#x2022 CONTACTEZ-MOI &#x2022</h2>
+                    
+                    <div class = "contact_image">
+                        <img src = "Images/Logos/SteevieContactTitle.png">
+                    </div>
+
+                    <div class="contact_links">
+                        <a class="contact_link" href="https://www.linkedin.com/in/steeve-dossou/" target = "_blank"></a>
+                        <a class="contact_link" href="https://www.instagram.com/steev_ee_dsgn/" target = "_blank"></a>
+                        <a class="contact_link" href="https://steeviee.itch.io" target = "_blank"></a>
+                    </div>
+                </div>
+                
+                
+                <form class = "contact_form" action = "https://api.web3forms.com/submit" method = "POST">
+                    <input type = "hidden" name = "access_key" value = "e2bc9073-05d0-401d-8241-da54be9b57e3">
+
+                    <input class="form" type="text" name="Name" autocomplete="name" placeholder="Votre nom..." required>
+                    <input class="form" type="email" name="Email" autocomplete="email" placeholder="Votre e-mail..." required>
+                    <textarea class = "form" name="Message" placeholder="Votre message..." required></textarea>
+                    <button class="form_button" type="submit">Envoyer</button>
+                </form>
+            </div>
             </div>
             
         </section>
 
 
     </body>
+    
+    <script src = "slider.js"></script>
+    <script src = "language.js"></script>
 
     <script>
-
-        var tabButtons = document.getElementsByClassName("tab_button");
-        var tabContents = document.getElementsByClassName("tab_content");
-
-        function openTab(tabName) {
-            /* Remove the "active" class for every tab */
-            for (tabButton of tabButtons) { tabButton.classList.remove("active"); }
-            for (tabContent of tabContents) { tabContent.classList.remove("active"); }
-
-            /* Add the "active" class to the clicked tab */
-            event.currentTarget.classList.add("active");
-            document.getElementById(tabName).classList.add("active");
-        }
-
+        
         function scrollToSection(targetName) {
             var target = document.getElementById(targetName);
             target.scrollIntoView(true);

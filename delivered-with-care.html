@@ -7,11 +7,13 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
         <meta name = "description" content = "Delivered With Care is 2D hand drawn platformer game made for Ludum Dare 53. The theme of the game jam was 'Delivery'.">
+        <link rel="icon" type="image/png" href="Images/Logos/LogoOnlyColor.png">
 
         <link rel = "stylesheet" href = "./projectstyle.css">
         <link rel = "stylesheet" href = "./style.css">
 
         <title> Steeve Dossou - Portfolio | Delivered With Care </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
 
     <body>
@@ -24,7 +26,18 @@
             </a> 
             
             <div class = "navbar_menu">
-                <a href = "index.html#projects" class = "menu_button">Back</a>
+                <div class="english">
+                    <a href = "index.html#projects" class = "menu_button">Back</a>
+                </div>
+
+                <div class="french">
+                    <a href = "index.html#projects" class = "menu_button">Retour</a>
+                </div>
+
+                <div class = menu_options>
+                    <button class = "language_button active" id = "english_button" onclick = "changeLanguage('english')"></button>
+                    <button class = "language_button" id = "french_button" onclick = "changeLanguage('french')"></button> 
+                </div>
             </div>
         </nav>
 
@@ -65,13 +78,19 @@
                 </div>
                
                 <div class = "overview_desc">
-                    <p> Delivered With Care is a 2D hand drawn platformer game created for the <a href = "https://ldjam.com/events/ludum-dare/53" target = "_blank" style = "text-decoration: none; color: #4573eb;">Ludum Dare 53</a> game jam. In this game, the player controls a delivery boy who has to deliver packages without breaking them. In order to successfully navigate through the levels, he has to throw the packages around. <br><br>
+                    <p class = "english"> Delivered With Care is a 2D hand drawn platformer game created for the <a href = "https://ldjam.com/events/ludum-dare/53" target = "_blank" style = "text-decoration: none; color: #4573eb;">Ludum Dare 53</a> game jam. In this game, the player controls a delivery boy who has to deliver packages without breaking them. In order to successfully navigate through the levels, he has to throw the packages around. <br><br>
                     
                     This game was created by a team of 5, in which I was the game programmer.</p>
+                    
+                    <p class = "french"> Delivered With Care est un jeu 2D de plateforme dessiné à la main créé pour la <a href = "https://ldjam.com/events/ludum-dare/53" target = "_blank" style = "text-decoration: none; color: #4573eb;">Ludum Dare 53</a>. Dans ce jeu, le joueur contrôle un livreur qui doit envoyer des colis sans les casser. Afin d'arriver à se déplacer efficacement, il doit lancer et rattraper les colis un peu partout. <br><br>
+                    
+                    Le jeu a été créé par une équipe de 5, dans laquelle j'étais le programmeur.</p>
 
                     <div class = "call_to_action">
-                        <a href = "https://steeviee.itch.io/delivered-with-care" target = "_blank">Play the Game!</a>
-                        <a href = "https://ldjam.com/events/ludum-dare/53/delivered-with-care-1" target = "_blank">Game Jam Entry</a>
+                        <a href = "https://steeviee.itch.io/delivered-with-care" class = "english" target = "_blank">Play the Game!</a>
+                        <a href = "https://ldjam.com/events/ludum-dare/53/delivered-with-care-1" class = "english" target = "_blank">Game Jam Entry</a>
+                        <a href = "https://steeviee.itch.io/delivered-with-care" class = "french" target = "_blank">Jouez au jeu!</a>
+                        <a href = "https://ldjam.com/events/ludum-dare/53/delivered-with-care-1" class = "french" target = "_blank">Participation à la Game Jam</a>
                     </div>
                 </div>
             </div>
@@ -82,16 +101,24 @@
         <section id = "insight">
 
             <div class = "insight_container">
-                <h2>&#x2022 INSIGHT &#x2022</h2>
+                <h2 class = "english">&#x2022 INSIGHT &#x2022</h2>
+                <h2 class = "french">&#x2022 DÉTAILS &#x2022</h2>
 
                 <div class = "container">
-
-                    <div class = "text">
+                    <div class = "text english">
                         <p><h3>Gameplay Design</h3><br>
                         
                         In order to grab the attention of players during game jams, our main focus is to create an interesting primary gameplay mechanic and create the game around it. The theme of the game jam was <span class = "emph">Delivery</span>. <br><br>
                         
                         I wanted to make a platformer with a twist so I suggested to have the player use a box to move around. The player has to keep the box from touching the ground below it, while throwing it around and catching it back to move effectively.</p>
+                    </div>
+
+                    <div class = "text french">
+                        <p><h3>Design du Gameplay</h3><br>
+                        
+                        Afin d'attirer l'attention des joueurs pendant la game jam, notre but principal était de créer une mécanique de gameplay intéressante et de construire le jeu autour d'elle. le thème de la game jam était <span class = "emph">"Delivery" (Livraison)</span>. <br><br>
+                        
+                        Je voulais créer un platformer avec une touche d'originalité donc j'ai suggéré de donner une boîte au joueur qu'il utiliserait pour se déplacer. Le joueur doit empêcher la boîte de tomber, tout en la lançant et la rattrapant pour se déplacer efficacement.</p>
                     </div>
                     
                     <div class = "image">
@@ -104,23 +131,34 @@
                         <img src="Projects/DeliveredWithCare/DeliverInsightGif.gif" alt="">
                     </div>
                     
-                    <div class = "text">
+                    <div class = "text english">
                         <p><h3>Code Architecture</h3><br>
                         
                         As this game is a 2D platformer, the architecture is the same as every other 2D platformer I've worked on. It is based on <span class = "emph">Finite State Machines</span> and the <span class = "emph">design pattern of the observer</span>. This helped me make fluid transitions between the player states and let the players seamlessly do multiple actions when they want.<br><br>
                     
                         The design pattern of the observer lets me use update methods and if statements less frequently. Using this way of coding prevents me from using countless if statements and also prevents the code from breaking when some parts are missing or not used. </p>
                     </div>
+
+                    <div class = "text french">
+                        <p><h3>Architecture du code</h3><br>
+                        
+                        Comme ce jeu est un plateformer en 2D, son architecture est la même que tous les autres plateformers sur lesquels j'ai travaillé. Elle est basée sur les <span class = "emph">State Machines</span> et le <span class = "emph">design pattern de l'observateur</span>. Cela m'a aidé à faire des transitions fluides entre les états du personnage et aussi à permettre aux joueurs de faire plusieurs actions quand ils le veulent.<br><br>
+                    
+                        Le design pattern de l'observateur me permet d'utiliser les méthodes d'update et les conditions if. Using this way of coding prevents me from using countless if statements and also prevents the code from breaking when some parts are missing or not used. </p>
+                    </div>
                 </div>
 
                 <div class = "container">
-                    <div class = "text_end">Thank you for reading!</div>
+                    <div class = "text_end english">Thank you for reading!</div>
+                    <div class = "text_end french">Merci de votre lecture!</div>
                 </div>
 
                 <div class = "container">
                     <div class = "call_to_action">
-                        <a href = "https://steeviee.itch.io/delivered-with-care" target = "_blank">Play the Game!</a>
-                        <a href = "https://ldjam.com/events/ludum-dare/53/delivered-with-care-1" target = "_blank">Game Jam Entry</a>
+                        <a href = "https://steeviee.itch.io/delivered-with-care" class = "english" target = "_blank">Play the Game!</a>
+                        <a href = "https://ldjam.com/events/ludum-dare/53/delivered-with-care-1" class = "english" target = "_blank">Game Jam Entry</a>
+                        <a href = "https://steeviee.itch.io/delivered-with-care" class = "french" target = "_blank">Jouez au jeu!</a>
+                        <a href = "https://ldjam.com/events/ludum-dare/53/delivered-with-care-1" class = "french" target = "_blank">Participation à la Game Jam</a>
                     </div>
                 </div>
 
@@ -136,6 +174,7 @@
 
     </body>
 
-    <script src = "projectscript.js"></script>
+    <script src = "projectslider.js"></script>
+    <script src = "language.js"></script>
     
 </html>

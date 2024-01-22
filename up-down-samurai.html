@@ -7,11 +7,13 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
         <meta name = "description" content = "Up Down Samurai is a small rhythm game with a twist on the genre. ">
+        <link rel="icon" type="image/png" href="Images/Logos/LogoOnlyColor.png">
 
         <link rel = "stylesheet" href = "./projectstyle.css">
         <link rel = "stylesheet" href = "./style.css">
 
         <title> Steeve Dossou - Portfolio | Up Down Samurai </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
 
     <body>
@@ -24,7 +26,18 @@
             </a> 
             
             <div class = "navbar_menu">
-                <a href = "index.html#projects" class = "menu_button">Back</a>
+                <div class="english">
+                    <a href = "index.html#projects" class = "menu_button">Back</a>
+                </div>
+
+                <div class="french">
+                    <a href = "index.html#projects" class = "menu_button">Retour</a>
+                </div>
+
+                <div class = menu_options>
+                    <button class = "language_button active" id = "english_button" onclick = "changeLanguage('english')"></button>
+                    <button class = "language_button" id = "french_button" onclick = "changeLanguage('french')"></button> 
+                </div>
             </div>
         </nav>
 
@@ -70,7 +83,8 @@
                     As it was for and underclassman, the game is in french. It might be a bit hard to grasp but it is still playable by anyone. Try it! </p>
 
                     <div class = "call_to_action">
-                        <a href = "Projects/UpDownSamurai/Up Down Samurai v1.2.zip" download>Play the Game!</a>
+                        <a href = "Projects/UpDownSamurai/Up Down Samurai v1.2.zip" class = "english" download>Download the Game!</a>
+                        <a href = "Projects/UpDownSamurai/Up Down Samurai v1.2.zip" class = "french" download>Téléchargez le jeu!</a>
                     </div>
                 </div>
             </div>
@@ -81,7 +95,8 @@
         <section id = "insight">
 
             <div class = "insight_container">
-                <h2>&#x2022 INSIGHT &#x2022</h2>
+                <h2 class = "english">&#x2022 INSIGHT &#x2022</h2>
+                <h2 class = "french">&#x2022 DÉTAILS &#x2022</h2>
 
                 <div class = "container">
                     <div class = "text">
@@ -98,12 +113,14 @@
                 </div>
 
                 <div class = "container">
-                    <div class = "text_end">Thank you for reading!</div>
+                    <div class = "text_end english">Thank you for reading!</div>
+                    <div class = "text_end french">Merci de votre lecture!</div>
                 </div>
 
                 <div class = "container">
                     <div class = "call_to_action">
-                        <a href = "Projects/UpDownSamurai/Up Down Samurai v1.2.zip" download>Play the Game!</a>
+                        <a href = "Projects/UpDownSamurai/Up Down Samurai v1.2.zip" class = "english" download>Download the Game!</a>
+                        <a href = "Projects/UpDownSamurai/Up Down Samurai v1.2.zip" class = "french" download>Téléchargez le jeu!</a>
                     </div>
                 </div>
 
@@ -119,6 +136,7 @@
 
     </body>
 
-    <script src = "projectscript.js"></script>
+    <script src = "projectslider.js"></script>
+    <script src = "language.js"></script>
 
 </html>

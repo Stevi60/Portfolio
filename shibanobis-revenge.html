@@ -6,11 +6,13 @@
         <meta charset = "UTF-8">
         <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
         <meta name = "description" content = "Shibanobi's Revenge is a small pixel art 2D platformer, heavily inspired by the game Celeste. This game was a school project and was made by a team of 3 people. Steeve Dossou was the programmer and also worked on level design.">
+        <link rel="icon" type="image/png" href="Images/Logos/LogoOnlyColor.png">
 
         <link rel = "stylesheet" href = "./projectstyle.css">
         <link rel = "stylesheet" href = "./style.css">
 
         <title> Steeve Dossou - Portfolio | Shibanobi's Revenge </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
 
     <body>
@@ -21,9 +23,20 @@
                 <img src = "Images/Logos/LogoBlack.png" class = "navbar_logo">
                 <p class = "navbar_title">Steeve Dossou<br>Portfolio</p>
             </a> 
-            
+
             <div class = "navbar_menu">
-                <a href = "index.html#projects" class = "menu_button">Back</a>
+                <div class="english">
+                    <a href = "index.html#projects" class = "menu_button">Back</a>
+                </div>
+
+                <div class="french">
+                    <a href = "index.html#projects" class = "menu_button">Retour</a>
+                </div>
+
+                <div class = menu_options>
+                    <button class = "language_button active" id = "english_button" onclick = "changeLanguage('english')"></button>
+                    <button class = "language_button" id = "french_button" onclick = "changeLanguage('french')"></button> 
+                </div>
             </div>
         </nav>
 
@@ -64,12 +77,17 @@
                 </div>
                
                 <div class = "overview_desc">
-                    <p> Shibanobi's Revenge is a small pixel art 2D platformer, heavily inspired by the game Celeste. This game was a school project that I made with 2 classmates in a few months during my second year in college at l'École de Design Nantes Atlantique. It was made in Unity.<br><br>
-                    In this project, I was fully in charge of the programming. Each one of us was also in charge of doing level design.
-                    </p>
+                    <p class = "english"> Shibanobi's Revenge is a small pixel art 2D platformer, heavily inspired by the game<a href = "https://www.celestegame.com" target = "_blank" style = "text-decoration: none; color: #4573eb;">Celeste</a>. This game was a school project that I made with 2 classmates in a few months during my second year in college at l'École de design Nantes Atlantique. It was made in Unity.<br><br>
+
+                    In this project, I was fully in charge of the programming. Each one of us was also in charge of doing level design.</p>
+                    
+                    <p class = "french"> Shibanobi's Revenge est un petit jeu de plateformes en pixel art, très inspiré par <a href = "https://www.celestegame.com" target = "_blank" style = "text-decoration: none; color: #4573eb;">Celeste</a>. Ce jeu était un projet de cours que j'ai fait avec 2 camarades de classe en quelques mois durant ma deuxième année d'études à L'École de design Nantes Atlantique. Il a été fait sur Unity.<br><br>
+                        
+                    Dans ce projet, j'étais chargé de toute la programmation. Chacun de nous était aussi chargé de faire du level design.</p>
 
                     <div class = "call_to_action">
-                        <a href = "https://steeviee.itch.io/shibanobis-revenge" target = "_blank">Play the Game!</a>
+                        <a href = "https://steeviee.itch.io/shibanobis-revenge" target = "_blank" class = "english">Play the Game!</a>
+                        <a href = "https://steeviee.itch.io/shibanobis-revenge" target = "_blank" class = "french">Jouez au jeu!</a>
                     </div>
                 </div>
             </div>
@@ -80,7 +98,8 @@
         <section id = "insight">
 
             <div class = "insight_container">
-                <h2>&#x2022 INSIGHT &#x2022</h2>
+                <h2 class = "english">&#x2022 INSIGHT &#x2022</h2>
+                <h2 class = "french">&#x2022 DÉTAILS &#x2022</h2>
 
                 <div class = "container">
                     <div class = "image">
@@ -88,7 +107,6 @@
                     </div>
 
                     <div class = "text">
-
                         <p><h3>Code Architecture</h3><br>
 
                         Shibanobi's Revenge is the first game I made that had levels. In order to facilitate level creation in the engine, I created a seamless way for level screens to transition between each other. This way, the player doesn't have to think about camera control and can see everything he needs to see on a single screen.<br><br>
@@ -115,12 +133,14 @@
                 </div>
 
                 <div class = "container">
-                    <div class = "text_end">Thank you for reading!</div>
+                    <div class = "text_end english">Thank you for reading!</div>
+                    <div class = "text_end french">Merci de votre lecture!</div>
                 </div>
 
                 <div class = "container">
                     <div class = "call_to_action">
-                        <a href = "https://steeviee.itch.io/shibanobis-revenge" target = "_blank">Play the Game!</a>
+                        <a href = "https://steeviee.itch.io/shibanobis-revenge" target = "_blank" class = "english">Play the Game!</a>
+                        <a href = "https://steeviee.itch.io/shibanobis-revenge" target = "_blank" class = "french">Jouez au jeu!</a>
                     </div>
                 </div>
 
@@ -135,6 +155,7 @@
         
     </body>
 
-    <script src = "projectscript.js"></script>
+    <script src = "projectslider.js"></script>
+    <script src = "language.js"></script>
 
 </html>

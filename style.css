@@ -1,5 +1,5 @@
 @font-face {
-    font-family: Pixelz;
+    font-family: "Pixelz";
     src: url('Fonts/Pixelz.ttf'), format('truetype');
 }
 
@@ -127,6 +127,12 @@ html,body
     overflow: hidden;
 }
 
+@media screen and (max-width: 390px) {
+    .menu_list { 
+        right: 24%;
+    }
+}
+
 .menu_list li {
     text-decoration: none;
     border: 1px black;
@@ -164,6 +170,49 @@ html,body
         color: white;
         background-color: black;
     }
+}
+
+.menu_options {
+    position: absolute;
+    left: -80%;
+
+    display: flex;
+    gap: 1rem;
+}
+
+@media screen and (max-width: 390px) {
+    .menu_options { 
+        position: static;
+        margin-left: 0.5rem;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+}
+
+.language_button {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: none;
+
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.language_button.active {
+    border-color: #4573eb;
+    border-style: solid;
+}
+
+#english_button {
+    background-image: url("https://flagicons.lipis.dev/flags/4x3/gb.svg");
+    object-fit: cover;
+    object-position: center;
+}
+
+#french_button {
+    background-image: url("https://flagicons.lipis.dev/flags/4x3/fr.svg");
+    object-fit: cover;
+    object-position: center;
 }
 
 /* ------------------------------
@@ -216,11 +265,11 @@ html,body
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 4rem;
 }
 
 .about_title h2 {
     font-size: 2.5rem;
+    margin-bottom: 6.75rem;
 
     color: white;
     text-shadow: 5px 0 20px black;
@@ -285,20 +334,21 @@ html,body
     box-shadow: 0 0 20px black;
 }
 
-.tabs {
+.tabs_wrap {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
 }
 
-.tab_buttons {
+.slide_buttons {
     display: flex;
     align-self: center;
     gap: 1rem;
 }
 
-.tab_button {
+.slide_button {
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
@@ -308,58 +358,43 @@ html,body
     cursor: pointer;
 }
 
-.tab_button::after {
-    content: '';
+.active_slide { background: #4573eb; }
 
+@media (pointer: fine) {
+    .slide_button { transition: 0.5s; }
+    .slide_button:hover { background: #cfdcfd; }
+}
+
+@media (pointer: coarse) {
+    .slide_button { transition: 0.25s; }
+    .slide_button:active { background: #cfdcfd; }
+}
+
+.slider_container {
     width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    position: absolute;
-
-    background-color: #cfdcfd;
-    cursor: pointer;
-
-    transition: 0.25s;
 }
 
-.tab_button.active::after {
-    content: '';
+.tab_slider {
+    display: grid;
+    grid-template-areas: "tab tab tab";
+    grid-auto-columns: 100%;
 
-    width: 105%;
-    height: 105%;
-    border-radius: 50%;
-    position: absolute;
-
-    background-color: #4573eb;
-    cursor: pointer;
-
-    transition: 0.25s;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
 }
 
-.tab_content {
-    display: none;
-
-    flex-grow: 1;
+.tab {
+    grid-area: "tab";
+    
     font-size: 0.8rem;
     padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
     border-radius: 0.5rem;
 
     background-color: #eff4ff;
 
-    transition: 0.5s;
-}
-
-.tab_content.active {
-    display: block;
-
-    flex-grow: 1;
-    font-size: 0.8rem;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-
-    background-color: #eff4ff;
-
-    transition: 0.5s;
+    scroll-snap-align: center;
 }
 
 .small_emph {

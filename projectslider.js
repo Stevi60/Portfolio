@@ -1,6 +1,6 @@
 var slideButtons = document.getElementsByClassName("slide_button");
 var slides = document.getElementsByClassName("slide");
-var slider = document.getElementsByClassName("slider")[0];
+var slider = document.querySelector(".slider");
 var scrollTimer;
 
 function changeSlide() {
@@ -18,13 +18,22 @@ function changeSlide() {
 }
 
 // Call the matchslide funciton when the slider is being scrolled
-slider.addEventListener('scroll', function() { 
-    clearTimeout(scrollTimer); 
-    scrollTimer = setTimeout(matchSlide, 25); 
-});
+if (slider !== null) {
+    slider.addEventListener('scroll', function() { 
+        clearTimeout(scrollTimer); 
+        scrollTimer = setTimeout(matchSlide, 25); 
+    });    
+}
+
+for (slide of slides) {
+    slide.addEventListener('hover', function() { 
+        clearTimeout(scrollTimer); 
+        scrollTimer = setTimeout(matchSlide, 25); 
+    });
+}
 
 function matchSlide() {
-    var sliderRect = slider.getBoundingClientRect();
+    if (slider !== null) { var sliderRect = slider.getBoundingClientRect(); }
 
     for (let i = 0; i < slides.length; i++) {
         var slideRect = slides[i].getBoundingClientRect();
