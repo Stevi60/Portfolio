@@ -106,25 +106,44 @@
                         <img src="Projects/ShibanobisRevenge/ShibanobiBannerGif.gif" alt="">
                     </div>
 
-                    <div class = "text">
+                    <div class = "text english">
                         <p><h3>Code Architecture</h3><br>
 
                         Shibanobi's Revenge is the first game I made that had levels. In order to facilitate level creation in the engine, I created a seamless way for level screens to transition between each other. This way, the player doesn't have to think about camera control and can see everything he needs to see on a single screen.<br><br>
 
-                        Every single level follows a pattern. Each screen is numbered and wrapped inside a <span class = "emph">box collider</span>. This way, the camera controller knows the boundaries of the current screen and knows which portion of the level it has to transition to next. </p>    
+                        Every single level follows a pattern. Each screen is numbered and wrapped inside a <span class = "emph">box collider</span>. This way, the camera controller will know the boundaries of the current screen and will know which portion of the level it has to transition to next. </p>    
+                    </div>
+
+                    <div class = "text french">
+                        <p><h3>Architecture du code</h3><br>
+
+                        Shibanobi's Revenge est le premier jeu que j'ai fait qui contenait des niveaux. Pour faciliter la création de niveaux dans l'éditeur, J'ai mis en place une méthode fluide permettant aux niveaux de changer entre eux. De cette façon, le joueur n'a pas à se soucier de la caméra et peut voir tout ce dont il a besoin sur un seul écran.<br><br>
+
+                        Tous les niveaux suivent un modèle. Chaque tableau est numéroté et entouré d'un <span class = "emph">box collider</span>. Comme ça, le contrôleur de la camera connaîtra les bords du tableau actuel aussi sur quel tableau il doit changer par la suite. </p>    
                     </div>
                 </div>
 
                 <div class = "container">
-                    <div class = "text">
-                        <p> Shibanobi's Revenge is a game where the player has to perform precise movements in order to reach the end of each level. In order to help the player achieve this, <span class = "emph" >every movement ability is cancellable by another movement ability</span>. Therefore, I used a <span class = "emph">Finite State Machine</span> to make every state the player can be in, and give them the ability to switch between them when they need to. </p>    
+                    <div class = "text english">
+                        <p> Shibanobi's Revenge is a game where the player has to perform precise movements in order to reach the end of each level. To help the player achieve this, <span class = "emph" >every movement ability is cancellable by another movement ability</span>. Therefore, I used a <span class = "emph">Finite State Machine</span> to make every state the player can be in, and give them the ability to switch between them when they need to. </p>    
+                    </div>
+
+                    <div class = "text french">
+                        <p> Shibanobi's Revenge est un jeu où le joueur doit faire des mouvements précis pour atteindre la fin de chaque niveau. Afin d'aider le joueur à faire cela, <span class = "emph" >chaque compétence de déplacement peut être annulée par une autre</span>. J'ai donc utilisé une <span class = "emph">Finite State Machine</span> pour faire chaque état dans lequel le joueur peut être, et lui permettre de basculer d'un état à un autre dès qu'il en a besoin. </p>    
                     </div>
                 </div>
 
                 <div class = "container">
-                    <div class = "text">
+                    <div class = "text english">
                         <p> <h3 class = "inline_title">Level Design</h3><br>
-                        The level design was a very important portion of the game. It lets players learn the game's mechanics and apply them when the game challenges their skill. Every level was first <span class=  "emph">drawn on paper using a grid</span>. In order to have a seamless gameplay, we wrote down <span class = "emph">the distance of every ability</span> and used that information to make the obstacles. </p>    
+
+                        The level design was a very important portion of the game. It lets players learn the game's mechanics and apply them when the game challenges their skill. Every level was first <span class=  "emph">drawn on paper using a grid</span>. In order to have a coherent gameplay, we wrote down <span class = "emph">the distance travelled with every ability</span> and used that information to make the obstacles. </p>    
+                    </div>
+
+                    <div class = "text french">
+                        <p> <h3 class = "inline_title">Level Design</h3><br>
+                            
+                        Le level design était une partie très importante du jeu. Il permet aux joueurs d'apprendre les mécaniques du jeu et de les appliquer lorsqu'il défie leurs compétences. Chaque niveau était d'abord <span class=  "emph">dessiné sur papier à l'aide d'une grille</span>. Afin d'avoir un gameplay cohérent, nous avions écrit <span class = "emph">la distance parcourue avec chaque compétence</span> et nous avions utilisé ces informations pour placer les obstacles. </p>    
                     </div>
 
                     <div class = "image">
