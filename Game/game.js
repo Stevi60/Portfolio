@@ -138,8 +138,10 @@ window.addEventListener('load', () => {
         }
 
         //Show the header
-        document.querySelector(".game_title h1").classList.remove("reverse");
-        document.querySelector(".game_title p").classList.remove("reverse");
+        document.querySelectorAll(".game_title h1")[0].classList.remove("reverse");
+        document.querySelectorAll(".game_title p")[0].classList.remove("reverse");
+        document.querySelectorAll(".game_title h1")[1].classList.remove("reverse");
+        document.querySelectorAll(".game_title p")[1].classList.remove("reverse");
 
         header_logo.classList.remove("ship");
         header_logo.classList.add("not_ship");
