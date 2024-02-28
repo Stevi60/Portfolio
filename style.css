@@ -6,12 +6,12 @@
 * {
     font-family: Pixelz, sans-serif;
     font-size: calc(15px + 0.390625vw);
+    
     padding: 0;
     margin: 0;
 }
 
-html,body
-{
+html,body {
     width: 100%;
     height: 100%;
     margin: 0px;
@@ -19,6 +19,28 @@ html,body
     overflow-x: hidden; 
 
     scroll-behavior: smooth;
+}
+
+.background_wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: -10;
+    position: absolute;
+    overflow: hidden;
+}
+
+.background {
+    flex: 0 0 1000%;
+    width: 1000%;
+    height: 1000%;
+
+    background: url("Images/Backgrounds/GameWall.png");
+    background-attachment: fixed;
 }
 
 /* ScrollBar */
@@ -218,18 +240,136 @@ html,body
 /* ------------------------------
 ---------- Game Style -----------
 ------------------------------ */
+particle {
+    position: fixed; 
 
-#game {
-    width: 100%;
-    height: 99vh;
+    border-radius: 50%; 
+    left: 0; top: 0; 
+    opacity: 0; 
+
+    pointer-events: none;
+    
 }
 
 .game_container {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    box-shadow: 0 0 20px black;
+    position: relative;
+}
+
+.game_title {
+    position: absolute;
+    width: 100vw;
+    height: 99vh;
+    transform: translateY(-1rem);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game_title h1 {
+    text-align: center;
+    font-size: 2.5rem;
+
+    color: white;
+    text-shadow: 5px 0 20px black;
+    
+    animation: game_title_anim 2s forwards;
+}
+
+.game_title p {
+    text-align: center;
+    font-size: 1.25rem;
+
+    color: #85a2ef;
+    text-shadow: 5px 0 20px black;
+
+    animation: game_title_anim 2s forwards;
+}
+
+@keyframes game_title_anim {
+    0% { transform: translateY(3rem); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.game_title .reverse { animation: game_title_anim_reverse 2s forwards; }
+
+@keyframes game_title_anim {
+    0% { transform: translateY(3rem); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes game_title_anim_reverse {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(3rem); opacity: 0; }
+}
+
+#header_logo.not_ship {
+    margin: 1rem;
+    width: 12rem;
+    height: 12rem;
+
+    background-image: url("Images/Logos/LogoColorWhite.png");
+    background-position: center;
+    background-size: contain;
+
+    animation: header_logo_enter 2s forwards, header_logo_idle 5s infinite;
+    transition: 0.25s;
+
+    cursor: pointer;
+}
+
+#header_logo.not_ship:hover {
+    margin: 0.625rem;
+    width: 12.75rem;
+    height: 12.75rem;
+}
+
+#header_logo.not_ship:active {
+    animation: header_logo_enter 2s forwards, header_logo_click 0.1s;
+}
+
+#header_logo.ship {
+    margin: -2rem;
+    width: 18rem;
+    height: 18rem;
+
+    background-image: url("Images/Logos/LogoColorShip.png");
+    background-position: center;
+    background-size: contain;
+
+    animation: header_ship_appear 1s forwards, header_ship_takeOff 2s 0.8s forwards;
+}
+
+@keyframes header_logo_enter {
+    0% { transform: translateY(-3rem); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes header_logo_idle {
+    85% { transform: rotate(0deg); }
+    87.5% { transform: rotate(5deg); }
+    90% { transform: rotate(-5deg); }
+    92.5% { transform: rotate(5deg); }
+    95% { transform: rotate(-5deg); }
+    97.5% { transform: rotate(5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes header_logo_click {
+    0% { width: 10rem; height: 10rem; margin: 2rem; }
+    100% { width: 12rem; height: 12rem; margin: 1rem;}
+}
+
+@keyframes header_ship_appear {
+    0% { width: 10rem; height: 10rem; transform: rotate(360deg); margin: 2rem; }
+    80% { width: 18rem; height: 18rem; transform: rotate(-10deg); margin: -2rem; }
+}
+
+@keyframes header_ship_takeOff {
+    30% { transform: translateY(1.5rem);}
+    50% { transform: translateY(1.75rem); }
+    100% { transform: translateY(-250%); }
 }
 
 /* -----------------------------
@@ -239,15 +379,6 @@ html,body
 #about {
     width: 100%;
     height: max-content;
-
-    background: url("Images/Backgrounds/GameWall.png");
-    background-attachment: fixed;
-
-    animation: about_back_loop 60s linear infinite;
-}
-
-@keyframes about_back_loop {
-    100% { background-position: 1526px -1526px; }
 }
 
 .about_container {
@@ -659,16 +790,6 @@ html,body
 #contact {
     width: 100%;
     height: max-content;
-
-    background: url("Images/Backgrounds/GameWall.png");
-
-    background-attachment: fixed;
-
-    animation: contact_back_loop 60s linear infinite;
-}
-
-@keyframes contact_back_loop {
-    100% { background-position: 1526px -1526px; }
 }
 
 .contact_container {

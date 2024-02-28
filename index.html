@@ -17,6 +17,7 @@
     </head>
 
     <body>
+        <div class = "background_wrap"><div class = "background"></div></div>
 
         <!-- Navigation bar -->
         <nav class = "navbar">
@@ -29,8 +30,8 @@
                 <button class = "menu_button">Menu</button>
                 
                 <ul class = "menu_list"> 
-                    <!-- <li onclick = "scrollToSection('game')" class = "english"><div class = "list_item">Game</div></li> -->
-                    <!-- <li onclick = "scrollToSection('game')" class = "french"><div class = "list_item">Game</div></li> -->
+                    <li onclick = "scrollToSection('game')" class = "english"><div class = "list_item">Header</div></li>
+                    <li onclick = "scrollToSection('game')" class = "french"><div class = "list_item">Accueil</div></li>
                     <li onclick = "scrollToSection('about')" class = "english"><div class = "list_item">About</div></li>
                     <li onclick = "scrollToSection('about')" class = "french"><div class = "list_item">Àpropos</div></li>
                     <li onclick = "scrollToSection('projects')" class = "english"><div class = "list_item">Projects</div></li>
@@ -46,9 +47,27 @@
         </nav>
 
         <!-- Mini Game section -->
-        <!-- <section id = "game">
-            <img src = "Images/Backgrounds/gamePlaceholder.png" class = "game_container">
-        </section> -->
+        <div class = "game_container">
+            <div class="game_title">
+                <div id = "header_logo" class = "not_ship"></div>
+                <h1 class = "english">&#x2022 WELCOME &#x2022</h1>
+                <p class = "english">Game Development Portfolio<br>---------------------<br>Steeve DOSSOU</p>
+                <h1 class = "french">&#x2022 BIENVENUE &#x2022</h1>
+                <p class = "french">Portfolio de Game Development<br>---------------------<br>Steeve DOSSOU</p>
+            </div>
+        </div>
+
+        <canvas id = "game"></canvas>
+        <script type = "module" src = "./Game/game.js"></script>
+
+        <div class = "game_assets" style = "display: none; position: absolute;">
+            <img id = "playerSprite" src = "Game/Sprites/playerSprite.png">
+            <img id = "playerTrail" src = "Game/Sprites/playerTrail.png">
+            <img id = "playerWingTrail" src = "Game/Sprites/playerWingTrail.png">
+            <img id = "playerBullet" src = "Game/Sprites/playerBullet.png">
+            <img id = "playerShockwave" src = "Game/Sprites/playerShockwave.png">
+            <img id = "playerBulletExplosion" src = "Game/Sprites/playerBulletExplosion.png">
+        </div>
 
         <!-- About Section -->
         <section id = "about">
@@ -64,8 +83,8 @@
                 </div>
                 
                 <div class = "about_desc">
-                    <p class = "english"> Ever since I was 11 years old, I was fascinated with the fact that I could create my own video games. Driven by pure passion and motivation, I've been honing and perfecting my craft in gameplay programming and game design.</p>
-                    <p class = "french"> Depuis que j'avais 11 ans, j'étais fasciné par le fait que je pouvais créer mes propres jeux-vidéo. Depuis lors, animé d'une passion et d'une motivation inébranlables, je me perfectionne de plus en plus en gameplay programming et en game design.</p>
+                    <p class = "english"> As a Beninese kid raised in Senegal, I was introduced to multiple cultures and lifestyles very early on. I've Ever since I was 11 years old, I'm fascinated by the fact that I can create my own video games and make use of my creativity. Driven by pure passion and motivation, I've been honing and perfecting my craft in gameplay programming and game design in France, at Nantes.</p>
+                    <p class = "french"> En tant que Béninois ayant grandi au Sénégal, j'ai connu plusieurs cultures et styles de vie très tôt. Depuis que j'ai 11 ans, je suis fasciné par le fait que je puisse créer mes propres jeux-vidéo et laisser libre cours à ma créativité. Depuis lors, animé d'une passion et d'une motivation inébranlables, je perfectionne mes compétences en gameplay programming et en game design en France, à Nantes.</p>
 
                     <div class = "tabs_wrap">
                         <div class = "slide_buttons">
@@ -84,7 +103,11 @@
                                 
                                 <span class = "inline_subtitle">Game Design</span><br>
                                 Excellent skills in designing <span class = "small_emph">game mechanics</span> and <span class = "small_emph">player mechanics</span>. Very reliable in <span class = "small_emph">level design</span>.<br><br>
-    
+                                
+                                <span class = "inline_subtitle">Web Design & Web Programming</span><br>
+                                Good in <span class = "small_emph">Front-End</span> and reliable in <span class = "small_emph">Javascript</span> and <span class = "small_emph">Object Oriented Programming</span>. (This website was made using HTML, CSS and JS)
+                                <br><br>
+
                                 <span class = "inline_subtitle">3D Modeling</span><br>
                                 Good knowledge of <span class = "small_emph">Blender</span>. Reliable skills in <span class = "small_emph">box modeling</span> and <span class = "small_emph">sculpting</span>.<br><br>
                                 </p>
@@ -92,7 +115,7 @@
                                 <p class="tab english" id = "slideEn-1">
                                 <span class = "inline_title">EXPERIENCE</span><br><br>
                                 
-                                <span class = "inline_title">Kaiso Studio</span><br>
+                                <span class = "inline_title"><a href = "http://kaisostudio.org" target = "_blank" style = "text-decoration: none; color: #4573eb;">Kaiso Studio</a></span><br>
                                 <span class = "inline_subtitle">Jan. 2022 - Present</span><br>
                                 <span class = "small_emph">Cofounder</span> of a <span class = "small_emph">multidisciplinary design studio</span>. <span class = "small_emph">Lead Game designer</span> and <span class = "small_emph">gameplay programmer</span>.<br><br>
                                 
@@ -121,6 +144,11 @@
                                 
                                 <span class = "inline_subtitle">Game Design</span><br>
                                 D'excellentes compétences en design de <span class = "small_emph">mécaniques de gameplay</span> et en <span class = "small_emph">mécaniques du joueur</span>. Des compétences très fiables en <span class = "small_emph">level design</span>.<br><br>
+                                
+                                <span class = "inline_subtitle">Web Design & Web Programming</span><br>
+                                Bon en <span class = "small_emph">Front-End</span> et fiable en <span class = "small_emph">Javascript</span> et en <span class = "small_emph">Programmation Orientée Objet</span>. (Ce site a été fait avec de l'HTML, du CSS et du JS)
+                                <br><br>
+                                
 
                                 <span class = "inline_subtitle">Modélisation 3D</span><br>
                                 Une bonne connaissance de <span class = "small_emph">Blender</span>. Des compétences fiables en <span class = "small_emph">box modeling</span> et en <span class = "small_emph">sculpting</span>.<br><br>
@@ -268,7 +296,7 @@
             <div class="french">
             <div class = "contact_container">
                 <div class = "contact_title">
-                    <h2>&#x2022 CONTACTEZ-MOI &#x2022</h2>
+                    <h2 style = "text-align: center;">&#x2022 CONTACTEZ-MOI &#x2022</h2>
                     
                     <div class = "contact_image">
                         <img src = "Images/Logos/SteevieContactTitle.png">
@@ -298,8 +326,8 @@
 
     </body>
     
-    <script src = "slider.js"></script>
-    <script src = "language.js"></script>
+    <script src = "./Scripts/slider.js"></script>
+    <script src = "./Scripts/language.js"></script>
 
     <script>
         
@@ -314,6 +342,7 @@
 
         $(".menu_list").hide()
         $(document).ready(function(){
+            //Get the height of the page
             
             //Open or close the navigation bar menu if it's clicked on
             $(".menu_button").click(function(){
