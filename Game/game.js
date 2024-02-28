@@ -1,4 +1,5 @@
 import { Player } from "./player.js";
+import { Asteroid } from "./asteroid.js";
 import { ParticleManager } from "./particle.js";
 import { Interval } from "./interval.js";
 
@@ -88,6 +89,9 @@ window.addEventListener('load', () => {
     var particleManager = new ParticleManager();
     var player = null;
 
+    //create Asteroids
+    var asteroids = [];
+
     //Update the canvas
     function Update() { 
         requestAnimationFrame(Update);
@@ -101,6 +105,18 @@ window.addEventListener('load', () => {
                 gameState = 3;
                 player = new Player(particleManager);
 
+                
+                var asteroidInterval = new Interval(
+                    function() { 
+                        var health = Math.round(Math.random() * 2 + 1);
+                        asteroids.push(new Asteroid(
+                            health, document.querySelector("#rock" + health),
+                            Math.random() * game.width, -500, Math.random() * (5 / health) + 1, 
+                            Math.random() 
+                        )) 
+                    }, 10000 / gameSpeed
+                );  asteroidInterval.Start();
+                
                 player.shootInterval.Start();
                 player.trailInterval.Start();
                 player.bullets.forEach((bullet) => {
@@ -111,7 +127,19 @@ window.addEventListener('load', () => {
             if (gameState === 3) {
                 //Update the player
                 player.Update(c, screenRatio, gameSpeed, mouseX);
-                particleManager.Update(c, screenRatio, gameSpeed);                
+
+                //Update Particles
+                particleManager.Update(c, screenRatio, gameSpeed);
+                
+                //Update the asteroids
+                asteroids.forEach((asteroid, index) => {
+                    asteroid.Update(c, screenRatio, gameSpeed);
+
+                    if (asteroid.y - (asteroid.size.y / 2) > game.height * 2) {
+                        asteroid.trailInterval.Clear();
+                        this.asteroids.splice(index, 1);
+                    }
+                });
             }
         } else {
             if (gameState > 0) StopGame();

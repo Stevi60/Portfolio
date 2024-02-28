@@ -1,31 +1,15 @@
 import { Interval } from "./interval.js";
 
 export class Asteroid {
-    constructor(particleManager, ) {
-        this.sprite = playerSprite;
+    constructor(health, sprite, x, y, speed, angleSpeed) {
+        this.health = health;
+        this.sprite = sprite;
         this.size = {x: 0, y: 0};
-        this.x = game.width / 2; 
-        this.y = -this.sprite.naturalHeight * 2;
-
-        this.target = {x: game.width / 2, y: game.height - 125};
-        this.playerSpeed = 2;
-
-        this.canShoot = false;
-        this.shootRate = 750;
-        this.bullets = [];
-        this.shootInterval = new Interval(() => { this.Shoot(); }, this.shootRate);
-
-        this.particleManager = particleManager;
-        this.trailInterval = new Interval(() => {this.CreateTrail(this.particleManager)}, 20);
-    }
-
-    CreateTrail(particleManager) {
-        //Create and draw trails
-        particleManager.CreateParticle( this.sprite, 
-            this.x, this.y + (this.size.y / 2.5), 
-            {x: 0, y: 0}, 0, 0,
-            1, 0, 30
-        );
+        this.x = x; 
+        this.y = y;
+        this.speed = speed;
+        this.angleSpeed = angleSpeed;
+        this.rot = 0;
     }
 
     Update(c, screenRatio, gameSpeed) {
@@ -35,13 +19,23 @@ export class Asteroid {
 
         //Draw the asteroid
         this.Draw(c);
+
+        //Move the asteroid
+        this.y += (this.speed * gameSpeed / 10) * screenRatio;
+        this.rot += this.angleSpeed;
+        if (this.rot > 360) this.rot = 0;
     }
 
     Draw(c) {
+        c.save();
+        c.translate(this.x, this.y);
+        c.rotate(this.rot * (Math.PI / 180));
+        c.translate(-this.x, -this.y);
         c.drawImage(
             this.sprite, this.x - (this.size.x / 2), 
             this.y - (this.size.y / 2), 
             this.size.x, this.size.y
-        );
+        ); 
+        c.restore();
     }
 }

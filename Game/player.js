@@ -86,7 +86,7 @@ export class Player {
                 this.shootInterval.Start();
                 this.particleManager.CreateParticle( playerShockwave, 
                     this.x, this.y,
-                    {x: 0, y: 0}, 30, 0,
+                    {x: 0, y: 0}, 0, 30,
                     0.5, 5, 75
                 );
             }
@@ -119,7 +119,7 @@ class PlayerBullet {
         this.trailInterval = new Interval(() => {this.CreateTrail(particleManager)}, 15);
         particleManager.CreateParticle( playerBulletExplosion, 
             this.x, this.y,
-            {x:0,y:0}, 10, 0,
+            {x:0,y:0}, 0, 10,
             0.5, 2.5, 30
         );
     }
