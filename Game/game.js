@@ -12,10 +12,16 @@ window.addEventListener('load', () => {
     game.width = window.innerWidth;
     game.height = window.innerHeight - 50;
 
+    //Screen ratios
+    var screenRatio = game.height / 640;
+    var screenWidthRatio = game.width / 1138;
+
     //Change the canvas according to the window screen
     window.addEventListener('resize', () => {   
         game.width = window.innerWidth;
         game.height = window.innerHeight - 50;
+        screenRatio = game.height / 640;
+        screenWidthRatio = game.width / 1138;
     });
 
     //Record the coordinates of the mouse
@@ -85,12 +91,31 @@ window.addEventListener('load', () => {
     //-------------------------------------------------------------
 
     //Initialize variables
-    var screenRatio = (game.height / 640);
     var particleManager = new ParticleManager();
     var player = null;
 
     //create Asteroids
     var asteroids = [];
+    var asteroidInterval = new Interval(
+        function() { 
+            var health = Math.round(Math.random() * 2 + 1);
+            asteroids.push(new Asteroid(
+                health, document.querySelector("#rock" + health),
+                Math.random() * game.width, -document.querySelector("#rock" + health).naturalHeight, 
+                Math.random() * (5 / health) + 0.5, Math.random() / (health / 2)
+            ));
+        }, 0
+    );
+
+    //Increase the speed of the game
+    var gameStartTimeout;
+    var gameInterval = new Interval(
+        function() { 
+            gameSpeed += 0.05; 
+            RotateBackground();
+            gameInterval.delay = 1000 * screenWidthRatio; 
+        }, 1000 * screenWidthRatio
+    );
 
     //Update the canvas
     function Update() { 
@@ -99,49 +124,67 @@ window.addEventListener('load', () => {
         //Clear the canvas after every frame
         c.clearRect(0, 0, game.width, game.height);
 
+        //change the spawn time according to the size of the screen
+        asteroidInterval.delay = (10000 / screenWidthRatio) / gameSpeed;
+
         if (visible) {
             //Resume the intervals
             if (gameState === 2) {
                 gameState = 3;
                 player = new Player(particleManager);
 
-                
-                var asteroidInterval = new Interval(
-                    function() { 
-                        var health = Math.round(Math.random() * 2 + 1);
-                        asteroids.push(new Asteroid(
-                            health, document.querySelector("#rock" + health),
-                            Math.random() * game.width, -500, Math.random() * (5 / health) + 1, 
-                            Math.random() 
-                        )) 
-                    }, 10000 / gameSpeed
-                );  asteroidInterval.Start();
-                
-                player.shootInterval.Start();
-                player.trailInterval.Start();
-                player.bullets.forEach((bullet) => {
-                    bullet.trailInterval.Start();
-                });
+                asteroidInterval.Start();
+                gameInterval.Start();
             }
             
             if (gameState === 3) {
                 //Update the player
                 player.Update(c, screenRatio, gameSpeed, mouseX);
 
-                //Update Particles
-                particleManager.Update(c, screenRatio, gameSpeed);
+                //Handle player death
+                if (player.isDead && Math.abs(player.target.y - player.y) < 10) {
+                    StopGame();
+                }
                 
                 //Update the asteroids
                 asteroids.forEach((asteroid, index) => {
-                    asteroid.Update(c, screenRatio, gameSpeed);
-
-                    if (asteroid.y - (asteroid.size.y / 2) > game.height * 2) {
-                        asteroid.trailInterval.Clear();
-                        this.asteroids.splice(index, 1);
+                    if (asteroid.y - (asteroid.size.y / 2) > game.height) {
+                        asteroids.splice(index, 1);
+                    } else {
+                        asteroid.Update(c, screenRatio, gameSpeed);
                     }
+
+                    //Collide with the player
+                    if (!player.isDead && Math.abs(player.x - asteroid.x) < asteroid.size.x / 1.5
+                    &&  Math.abs(player.y - asteroid.y) < asteroid.size.y / 1.75) {
+                        player.isDead = true; //Destroy player
+
+                        //Explode asteroid
+                        asteroid.Explode(particleManager);
+                        if (asteroid.health < 1) asteroids.splice(index, 1);
+                    }
+
+                    //Collide with bullets
+                    player.bullets.forEach((bullet, bulletIndex) => {
+                        if (Math.abs(bullet.x - asteroid.x) < asteroid.size.x / 2
+                        &&  Math.abs(bullet.y - asteroid.y) < asteroid.size.y / 2) {
+                            //Destroy bullet
+                            bullet.trailInterval.Clear();
+                            bullet.Explode(particleManager);
+                            player.bullets.splice(bulletIndex, 1); 
+
+                            //Explode asteroid
+                            asteroid.Explode(particleManager);
+                            if (asteroid.health < 1) asteroids.splice(index, 1);
+                        }
+                    });
                 });
+
+                //Update Particles
+                particleManager.Update(c, screenRatio, gameSpeed);
             }
         } else {
+            clearTimeout(gameStartTimeout);
             if (gameState > 0) StopGame();
         }
     } 
@@ -149,7 +192,9 @@ window.addEventListener('load', () => {
     Update();
 
     function StopGame() {
+        clearTimeout(gameStartTimeout);
         gameState = 0;
+        gameSpeed = 5;
 
         //Rotate the background back
         IsOnScreen();
@@ -157,9 +202,16 @@ window.addEventListener('load', () => {
         if (player != null || player != undefined) {
             player.shootInterval.Clear();
             player.trailInterval.Clear();
+            
+            asteroidInterval.Clear();
+            gameInterval.Clear();
 
             player.bullets.forEach((bullet) => { bullet.trailInterval.Clear(); });
             player.bullets.splice(0, player.bullets.length);
+            asteroids.splice(0, asteroids.length);
+
+            particleManager.timeouts.forEach((timeout) => { clearTimeout(timeout); });
+            particleManager.timeouts.splice(0, particleManager.timeouts.length);
             particleManager.particles.splice(0, particleManager.particles.length);
 
             player = null;
@@ -240,7 +292,7 @@ window.addEventListener('load', () => {
                     header_logo.classList.add("ship");
 
                     //Start the game
-                    setTimeout(function() { gameState = 2; }, 4000);
+                    gameStartTimeout = setTimeout(function() { gameState = 2; }, 4000);
                 }
 
                 if (header_logo.classList.contains("not_ship")) {

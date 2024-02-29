@@ -7,8 +7,6 @@ export class Interval {
 
         this.callback = callback;
         this.delay = delay;
-
-        this.Start();
     }
 
     Pause() {

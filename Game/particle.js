@@ -1,11 +1,16 @@
+import { Interval } from "./interval.js";
+
 export class ParticleManager {
     constructor() {
         this.gameSpeed = 0;
         this.particles = [];
+
+        this.timeouts = [];
     }
 
-    CreateParticle(sprite, x, y, speed, startAngle, angleSpeed, startScale, endScale, lifetime) {
-        this.particles.push(new Particle(sprite, x, y, speed, startAngle, angleSpeed, startScale, endScale, lifetime));
+    CreateParticle(sprite, x, y, speed, startAngle, angleSpeed, startScale, endScale, lifetime, delay) {
+        var particle = new Particle(sprite, x, y, speed, startAngle, angleSpeed, startScale, endScale, lifetime, delay);
+        this.particles.push(particle);
     }
 
     Update(c, screenRatio, gameSpeed) {
@@ -26,7 +31,7 @@ export class ParticleManager {
 }
 
 class Particle {
-    constructor(sprite, x, y, speed, startAngle, angleSpeed, startScale, endScale, lifetime) {
+    constructor(sprite, x, y, speed, startAngle, angleSpeed, startScale, endScale, lifetime, delay) {
         this.size = {x: 0, y: 0};
         this.speed = speed;
         this.angleSpeed = angleSpeed;
@@ -39,26 +44,32 @@ class Particle {
         this.alpha = 1;
         this.sprite = sprite;
         this.lifetime = lifetime;
+
+        this.startDate = Date.now();
+        this.delay = Date.now() + delay;
     }
 
     Update(c, screenRatio) {
-        //Scale the size according to the screen ratio
-        this.size.x = (this.sprite.naturalWidth * this.scale) * screenRatio;
-        this.size.y = (this.sprite.naturalHeight * this.scale) * screenRatio;
+        if (Date.now() > this.delay) {
+            //Scale the size according to the screen ratio
+            this.size.x = (this.sprite.naturalWidth * this.scale) * screenRatio;
+            this.size.y = (this.sprite.naturalHeight * this.scale) * screenRatio;
 
-        //Draw the particle
-        this.Draw(c);
+            //Draw the particle
+            this.Draw(c);
 
-        //Scroll the particle
-        this.x += this.speed.x * screenRatio;
-        this.y += this.speed.y * screenRatio;
-        this.rot += this.angleSpeed
-        if (this.rot > 360) this.rot = 0;
+            //Scroll the particle
+            this.x += this.speed.x * screenRatio;
+            this.y += this.speed.y * screenRatio;
+            this.rot += this.angleSpeed
+            if (this.rot > 360) this.rot = 0;
+            if (this.rot < 0) this.rot = 360;
 
-        //Decrease the alpha to 0
-        if (this.alpha > 0)  this.alpha -= 1 / this.lifetime;    
-        else this.alpha = 0;
-        this.scale = this.startScale + (1 - this.alpha) * (this.endScale - this.startScale);
+            //Decrease the alpha to 0
+            if (this.alpha > 0)  this.alpha -= 1 / this.lifetime;    
+            else this.alpha = 0;
+            this.scale = this.startScale + (1 - this.alpha) * (this.endScale - this.startScale);
+        }
     }
 
     Draw(c) {
