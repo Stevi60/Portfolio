@@ -102,7 +102,7 @@ window.addEventListener('load', () => {
             rotation += (Math.sign(targetRotation - rotation) * 0.45) * deltaTime;
         else rotation = targetRotation;
 
-        if (scrollSpeed != targetSpeed) scrollSpeed += Math.sign(targetSpeed - scrollSpeed) * 0.1 * deltaTime;
+        if (scrollSpeed != targetSpeed) scrollSpeed += Math.sign(targetSpeed - scrollSpeed) * 0.1;
 
         $('.background').css({
             "transform": "rotate(" + rotation + "deg)",
