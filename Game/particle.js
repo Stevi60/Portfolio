@@ -2,6 +2,7 @@ import { Interval } from "./interval.js";
 
 export class ParticleManager {
     constructor() {
+        this.canEmit = true;
         this.gameSpeed = 0;
         this.particles = [];
 
@@ -13,20 +14,25 @@ export class ParticleManager {
         this.particles.push(particle);
     }
 
-    Update(c, screenRatio, gameSpeed) {
-        this.gameSpeed = gameSpeed;
+    Update(c, deltaTime, screenRatio, gameSpeed) {
+        if (this.canEmit) {
+            this.gameSpeed = gameSpeed;
 
-        //Update the particles
-        this.particles.forEach((particle, index) => {
-            //Destroy out of bounds or invisible particles
-            if (particle.alpha <= 0) this.particles.splice(index, 1);
-            else particle.Update(c, screenRatio);
+            //Update the particles
+            this.particles.forEach((particle, index) => {
+                //Destroy out of bounds or invisible particles
+                if (particle.alpha <= 0) this.particles.splice(index, 1);
+                else particle.Update(c, deltaTime, screenRatio);
 
-            if (particle.x + (particle.size.x / 2) < 0 || particle.x - (particle.size.x / 2) > game.width
-            ||  particle.y + (particle.size.y / 2) < 0 || particle.y - (particle.size.y / 2) > game.height) {
-                this.particles.splice(index, 1);
-            } 
-        });
+                if (particle.x + (particle.size.x / 2) < 0 || particle.x - (particle.size.x / 2) > game.width
+                ||  particle.y + (particle.size.y / 2) < 0 || particle.y - (particle.size.y / 2) > game.height) {
+                    this.particles.splice(index, 1);
+                } 
+            });    
+        } else {
+            this.particles.splice(0, this.particles.length);
+        }
+        
     }
 }
 
@@ -49,7 +55,7 @@ class Particle {
         this.delay = Date.now() + delay;
     }
 
-    Update(c, screenRatio) {
+    Update(c, deltaTime, screenRatio) {
         if (Date.now() > this.delay) {
             //Scale the size according to the screen ratio
             this.size.x = (this.sprite.naturalWidth * this.scale) * screenRatio;
@@ -59,14 +65,14 @@ class Particle {
             this.Draw(c);
 
             //Scroll the particle
-            this.x += this.speed.x * screenRatio;
-            this.y += this.speed.y * screenRatio;
-            this.rot += this.angleSpeed
+            this.x += this.speed.x * deltaTime * screenRatio;
+            this.y += this.speed.y * deltaTime * screenRatio;
+            this.rot += this.angleSpeed* deltaTime;
             if (this.rot > 360) this.rot = 0;
             if (this.rot < 0) this.rot = 360;
 
             //Decrease the alpha to 0
-            if (this.alpha > 0)  this.alpha -= 1 / this.lifetime;    
+            if (this.alpha > 0)  this.alpha -= 1 / this.lifetime * deltaTime;    
             else this.alpha = 0;
             this.scale = this.startScale + (1 - this.alpha) * (this.endScale - this.startScale);
         }

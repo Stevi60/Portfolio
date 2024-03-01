@@ -34,6 +34,11 @@ window.addEventListener('load', () => {
     });
 
     //Initialize variables
+    var lastFrame = performance.now();
+    var updateFrames = [];
+    var fps = 0;
+    var deltaTime = 0;
+
     var gameState = 0;
     var clicks = 0;
     var gameSpeed = 5;
@@ -65,17 +70,39 @@ window.addEventListener('load', () => {
 
     //Animate the background
     function UpdateBackground() {
-        backX += -scrollSpeed;
-        backY += scrollSpeed;
+        //Calculate frameRate
+        if (visible) {
+            var newFrame = performance.now();
+            deltaTime = (newFrame - lastFrame) / 10;
+            lastFrame = newFrame;
+            updateFrames.push(deltaTime);
+            if (updateFrames.length > 10) updateFrames.splice(0, 1);
+
+            var totalDelta = 0;
+            updateFrames.forEach((frame) => { totalDelta += frame; });
+            fps = 1000 / (totalDelta / updateFrames.length);
+        } else {
+            lastFrame = performance.now();
+        }
+
+
+        //Scroll the background
+        if (visible) {
+            backX += -scrollSpeed * deltaTime;
+            backY += scrollSpeed * deltaTime;            
+        } else {
+            backX += -scrollSpeed;
+            backY += scrollSpeed;    
+        }
 
         if (Math.abs(backX) >= 1526) backX = 0;
         if (Math.abs(backY) >= 1526) backY = 0;
 
         if (Math.abs(targetRotation - rotation) >= 0.1) 
-            rotation += Math.sign(targetRotation - rotation) * 0.45;
+            rotation += (Math.sign(targetRotation - rotation) * 0.45) * deltaTime;
         else rotation = targetRotation;
 
-        if (scrollSpeed != targetSpeed) scrollSpeed += Math.sign(targetSpeed - scrollSpeed) * 0.1;
+        if (scrollSpeed != targetSpeed) scrollSpeed += Math.sign(targetSpeed - scrollSpeed) * 0.1 * deltaTime;
 
         $('.background').css({
             "transform": "rotate(" + rotation + "deg)",
@@ -91,6 +118,7 @@ window.addEventListener('load', () => {
     //-------------------------------------------------------------
 
     //Initialize variables
+
     var scoreText = game_score.innerHTML;
     var levelTextEn = game_levelEn.innerHTML;
     var levelTextFr = game_levelFr.innerHTML;
@@ -142,7 +170,7 @@ window.addEventListener('load', () => {
         c.clearRect(0, 0, game.width, game.height);
 
         //change the spawn time according to the size of the screen
-        asteroidInterval.delay = (10000 / screenWidthRatio) / gameSpeed;
+        asteroidInterval.delay = (10000  / screenWidthRatio) / gameSpeed;
 
         if (visible) {
             //Resume the intervals
@@ -156,7 +184,7 @@ window.addEventListener('load', () => {
             
             if (gameState === 3) {
                 //Update the player
-                player.Update(c, screenRatio, gameSpeed, mouseX);
+                player.Update(c, deltaTime, screenRatio, gameSpeed, mouseX);
 
                 //Handle player death
                 if (player.isDead && Math.abs(player.target.y - player.y) < 10) {
@@ -168,7 +196,7 @@ window.addEventListener('load', () => {
                     if (asteroid.y - (asteroid.size.y / 2) > game.height) {
                         asteroids.splice(index, 1);
                     } else {
-                        asteroid.Update(c, screenRatio, gameSpeed);
+                        asteroid.Update(c, deltaTime, screenRatio, gameSpeed);
                     }
 
                     //Collide with the player
@@ -206,7 +234,7 @@ window.addEventListener('load', () => {
                 });
 
                 //Update Particles
-                particleManager.Update(c, screenRatio, gameSpeed);
+                particleManager.Update(c, deltaTime, screenRatio, gameSpeed);
             }
         } else {
             clearTimeout(gameStartTimeout);

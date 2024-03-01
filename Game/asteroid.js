@@ -12,7 +12,7 @@ export class Asteroid {
 
     Explode(particleManager) {
         //Create explosion
-        const maxParticles = Math.round(Math.random() * 5 + (5 * this.health));
+        const maxParticles = Math.round(Math.random() * 3 + (3 * this.health));
 
         for (var i = 0; i < maxParticles; i++) {
             const particleSize = Math.random() * 1.9 + 0.1;
@@ -48,7 +48,7 @@ export class Asteroid {
         }
     }
 
-    Update(c, screenRatio, gameSpeed) {
+    Update(c, deltaTime, screenRatio, gameSpeed) {
         //Scale the size according to the screen ratio
         this.size.x = this.sprite.naturalWidth * screenRatio;
         this.size.y = this.sprite.naturalHeight * screenRatio;
@@ -57,8 +57,8 @@ export class Asteroid {
         this.Draw(c);
 
         //Move the asteroid
-        this.y += (this.speed * gameSpeed / 10) * screenRatio;
-        this.rot += this.angleSpeed;
+        this.y += (this.speed * deltaTime * (gameSpeed / 10)) * screenRatio;
+        this.rot += this.angleSpeed * deltaTime;
         if (this.rot > 360) this.rot = 0;
         if (this.rot < 0) this.rot = 360;
     }

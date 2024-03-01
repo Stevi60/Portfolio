@@ -21,6 +21,8 @@ export class Player {
         this.particleManager = particleManager;
         this.trailInterval = new Interval(() => {this.CreateTrail(this.particleManager)}, 10);
         this.trailInterval.Start();
+
+        this.deltaTime = 0;
     }
 
     CreateTrail(particleManager) {
@@ -43,7 +45,7 @@ export class Player {
         );
     }
 
-    Update(c, screenRatio, gameSpeed, mouseX) {
+    Update(c, deltaTime, screenRatio, gameSpeed, mouseX) {
         //Scale the size according to the screen ratio
         this.size.x = this.sprite.naturalWidth * screenRatio;
         this.size.y = this.sprite.naturalHeight * screenRatio;
@@ -54,7 +56,7 @@ export class Player {
         //Update the bullets
         this.bullets.forEach((bullet, index) => {
             //Destroy out of bounds or invisible particles
-            bullet.Update(c, screenRatio, gameSpeed);
+            bullet.Update(c, deltaTime, screenRatio, gameSpeed);
 
             if (bullet.x + (bullet.size.x / 2) < 0 || bullet.x - (bullet.size.x / 2) > game.width 
             ||  bullet.y < 0 || bullet.y - (bullet.size.y / 2) > game.height) {
@@ -68,20 +70,20 @@ export class Player {
             this.target.y = game.height - (125 * screenRatio);
 
             if (Math.abs(this.target.y - this.y) >= 30) {
-                this.y += (0.0015 * gameSpeed) * (this.target.y - this.y) * screenRatio;
+                this.y += (0.0015 * deltaTime * gameSpeed) * (this.target.y - this.y) * screenRatio;
 
                 //Prevent the player from shooting
                 this.canShoot = false;
                 this.shootInterval.Clear();
             } else {
                 //Lock the player's y location
-                this.y += (0.0015 * gameSpeed) * (this.target.y - this.y) * screenRatio;
+                this.y += (0.0015 * deltaTime * gameSpeed) * (this.target.y - this.y) * screenRatio;
                 if (Math.abs(this.target.y - this.y) <= 0.1) this.y = this.target.y;
 
                 //Let the player control the ship
                 this.target.x = mouseX;
                 if (Math.abs(this.target.x - this.x) >= 0.05) {
-                    this.x += (0.01 * this.playerSpeed) * (this.target.x - this.x) * screenRatio;
+                    this.x += (0.01 * this.playerSpeed * deltaTime) * (this.target.x - this.x) * screenRatio;
                 } else { 
                     this.x = this.target.x; 
                 }
@@ -101,7 +103,7 @@ export class Player {
         } else {
             //Rotate the player
             this.angleSpeed += 0.005;
-            this.rot += this.angleSpeed;
+            this.rot += this.angleSpeed * deltaTime;
             if (this.rot > 360) this.rot = 0;
             if (this.rot < 0) this.rot = 360;
 
@@ -121,7 +123,7 @@ export class Player {
             );
 
             this.target.y = game.height + (200 * screenRatio);
-            this.y += 0.5 * (this.y / this.target.y) * screenRatio;
+            this.y += 0.5 * deltaTime * (this.y / this.target.y) * screenRatio;
             
         }
 
@@ -198,7 +200,7 @@ class PlayerBullet {
         }
     }
 
-    Update(c, screenRatio, gameSpeed) {
+    Update(c, deltaTime, screenRatio, gameSpeed) {
         //Scale the size according to the screen ratio
         this.size.x = this.sprite.naturalWidth * screenRatio;
         this.size.y = this.sprite.naturalHeight * screenRatio;
@@ -207,7 +209,7 @@ class PlayerBullet {
         this.Draw(c);
 
         //Scroll the bullet
-        this.y += -this.speed * screenRatio;
+        this.y += -this.speed * deltaTime * screenRatio;
     }
 
     Draw(c) {
