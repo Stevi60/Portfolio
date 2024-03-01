@@ -91,6 +91,11 @@ window.addEventListener('load', () => {
     //-------------------------------------------------------------
 
     //Initialize variables
+    var scoreText = game_score.innerHTML;
+    var levelTextEn = game_levelEn.innerHTML;
+    var levelTextFr = game_levelFr.innerHTML;
+
+    var score = 0;
     var particleManager = new ParticleManager();
     var player = null;
 
@@ -98,12 +103,17 @@ window.addEventListener('load', () => {
     var asteroids = [];
     var asteroidInterval = new Interval(
         function() { 
-            var health = Math.round(Math.random() * 2 + 1);
-            asteroids.push(new Asteroid(
-                health, document.querySelector("#rock" + health),
-                Math.random() * game.width, -document.querySelector("#rock" + health).naturalHeight, 
-                Math.random() * (5 / health) + 0.5, Math.random() / (health / 2)
-            ));
+            for (var i = 0; i < Math.round(Math.random() * (gameSpeed / 5) + 1); i++) {
+                var health = Math.round(Math.random() * 2 + 1);
+
+                asteroids.push(new Asteroid(
+                    health, document.querySelector("#rock" + health),
+                    Math.random() * game.width, -document.querySelector("#rock" + health).naturalHeight, 
+                    Math.random() * (5 / health) + 0.5, Math.random() / (health / 2)
+                ));
+                console.log("New!");
+            }
+            
         }, 0
     );
 
@@ -111,15 +121,22 @@ window.addEventListener('load', () => {
     var gameStartTimeout;
     var gameInterval = new Interval(
         function() { 
-            gameSpeed += 0.05; 
+            gameSpeed += 0.05;
             RotateBackground();
-            gameInterval.delay = 1000 * screenWidthRatio; 
-        }, 1000 * screenWidthRatio
+
+            //Add score
+            score += Math.round(gameSpeed * 2);
+        }, 750
     );
 
     //Update the canvas
     function Update() { 
         requestAnimationFrame(Update);
+
+        //Update the game info
+        game_score.innerHTML = scoreText + score;
+        game_levelEn.innerHTML = levelTextEn + Math.round(gameSpeed / 5);
+        game_levelFr.innerHTML = levelTextFr + Math.round(gameSpeed / 5);
 
         //Clear the canvas after every frame
         c.clearRect(0, 0, game.width, game.height);
@@ -157,7 +174,12 @@ window.addEventListener('load', () => {
                     //Collide with the player
                     if (!player.isDead && Math.abs(player.x - asteroid.x) < asteroid.size.x / 1.5
                     &&  Math.abs(player.y - asteroid.y) < asteroid.size.y / 1.75) {
-                        player.isDead = true; //Destroy player
+                        //Destroy player
+                        player.isDead = true;
+
+                        //Stop counting the score
+                        asteroidInterval.Clear();
+                        gameInterval.Clear();
 
                         //Explode asteroid
                         asteroid.Explode(particleManager);
@@ -169,13 +191,16 @@ window.addEventListener('load', () => {
                         if (Math.abs(bullet.x - asteroid.x) < asteroid.size.x / 2
                         &&  Math.abs(bullet.y - asteroid.y) < asteroid.size.y / 2) {
                             //Destroy bullet
-                            bullet.trailInterval.Clear();
                             bullet.Explode(particleManager);
+                            bullet.trailInterval.Clear();
                             player.bullets.splice(bulletIndex, 1); 
 
                             //Explode asteroid
                             asteroid.Explode(particleManager);
                             if (asteroid.health < 1) asteroids.splice(index, 1);
+
+                            //Add to score
+                            score += 100 * Math.round(gameSpeed / 5);
                         }
                     });
                 });
@@ -195,6 +220,8 @@ window.addEventListener('load', () => {
         clearTimeout(gameStartTimeout);
         gameState = 0;
         gameSpeed = 5;
+
+        score = 0;
 
         //Rotate the background back
         IsOnScreen();
@@ -222,10 +249,14 @@ window.addEventListener('load', () => {
         document.querySelectorAll(".game_title p")[0].classList.remove("reverse");
         document.querySelectorAll(".game_title h1")[1].classList.remove("reverse");
         document.querySelectorAll(".game_title p")[1].classList.remove("reverse");
+        
+        document.querySelectorAll(".game_info div").forEach((element) => {
+            element.classList.add("reverse");
+        });
 
         header_logo.classList.remove("ship");
         header_logo.classList.add("not_ship");
-    }
+    } StopGame();
 
     //Check when the window is focused or not to prevent lag
     var propName = "hidden";
@@ -287,6 +318,10 @@ window.addEventListener('load', () => {
                     document.querySelectorAll(".game_title p")[0].classList.add("reverse");
                     document.querySelectorAll(".game_title h1")[1].classList.add("reverse");
                     document.querySelectorAll(".game_title p")[1].classList.add("reverse");
+
+                    document.querySelectorAll(".game_info div").forEach((element) => {
+                        element.classList.remove("reverse");
+                    });
 
                     header_logo.classList.remove("not_ship");
                     header_logo.classList.add("ship");

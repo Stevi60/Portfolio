@@ -56,8 +56,8 @@ export class Player {
             //Destroy out of bounds or invisible particles
             bullet.Update(c, screenRatio, gameSpeed);
 
-            if (bullet.x + (bullet.size.x / 2) < -game.width || bullet.x - (bullet.size.x / 2) > game.width * 2
-            ||  bullet.y + (bullet.size.y / 2) < -game.height || bullet.y - (bullet.size.y / 2) > game.height * 2) {
+            if (bullet.x + (bullet.size.x / 2) < 0 || bullet.x - (bullet.size.x / 2) > game.width 
+            ||  bullet.y < 0 || bullet.y - (bullet.size.y / 2) > game.height) {
                 bullet.trailInterval.Clear();
                 this.bullets.splice(index, 1);
             } 
@@ -178,7 +178,7 @@ class PlayerBullet {
 
     Explode(particleManager) {
         //Create explosion
-        const maxParticles = Math.round(Math.random() * 15 + 15);
+        const maxParticles = Math.round(Math.random() * 5 + 5);
 
         for (var i = 0; i < maxParticles; i++) {
             const shockwaveSize = Math.random() * 2 + 1;

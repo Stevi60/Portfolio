@@ -12,7 +12,7 @@ export class Asteroid {
 
     Explode(particleManager) {
         //Create explosion
-        const maxParticles = Math.round(Math.random() * 10 + (5 * this.health));
+        const maxParticles = Math.round(Math.random() * 5 + (5 * this.health));
 
         for (var i = 0; i < maxParticles; i++) {
             const particleSize = Math.random() * 1.9 + 0.1;
@@ -24,7 +24,7 @@ export class Asteroid {
             const speed = { x: Math.random() * 1.75 + 0.25, y: Math.random() * 1.75 + 0.25 };
 
             //Spawn Debris
-            particleManager.CreateParticle(document.querySelector("#debris" + Math.round(Math.random() * 2)),
+            particleManager.CreateParticle(document.querySelector("#titleParticle" + Math.round(Math.random())),
                 particle.x, particle.y, 
                 { x: Math.sign(particle.x - this.x) * speed.x, y: Math.sign(particle.y - this.y) * speed.y },
                 Math.random() * 360, Math.random() + 0.5, particleSize, particleSize,

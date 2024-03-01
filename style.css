@@ -30,7 +30,7 @@ html,body {
     height: 100%;
 
     z-index: -10;
-    position: absolute;
+    position: fixed;
     overflow: hidden;
 }
 
@@ -302,6 +302,37 @@ particle {
 @keyframes game_title_anim_reverse {
     0% { transform: translateY(0); opacity: 1; }
     100% { transform: translateY(3rem); opacity: 0; }
+}
+
+.game_info {
+    position: absolute;
+    top: 80vh;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: flex-start;
+}
+
+.game_info .reverse {
+    display: none;
+}
+
+.game_info div {
+    margin-left: 1rem;
+    
+    font-size: 1.2rem;
+    color: white;
+    text-shadow: 5px 0 20px black;
+}
+
+.game_info p {
+    margin-left: 1rem;
+    
+    font-size: 1.2rem;
+    color: white;
+    text-shadow: 5px 0 20px black;
 }
 
 #header_logo.not_ship {
