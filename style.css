@@ -316,7 +316,7 @@ particle {
 }
 
 .game_info .reverse {
-    display: none;
+    animation: game_title_anim_reverse 2s forwards;
 }
 
 .game_info div {
@@ -325,6 +325,7 @@ particle {
     font-size: 1.2rem;
     color: white;
     text-shadow: 5px 0 20px black;
+    animation: game_title_anim 2s forwards
 }
 
 .game_info p {
@@ -333,6 +334,7 @@ particle {
     font-size: 1.2rem;
     color: white;
     text-shadow: 5px 0 20px black;
+    animation: game_title_anim 2s forwards
 }
 
 #header_logo.not_ship {
